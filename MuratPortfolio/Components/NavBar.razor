@@ -1,0 +1,27 @@
+﻿<header class="nb-site-navbar">
+    <div class="nb-container">
+        <a href="/" class="nb-brand">Murat.Buyuksal</a>
+
+        <button class="nb-toggle d-lg-none" @onclick="Toggle" aria-expanded="@open">
+            <span class="nb-toggle-bar"></span>
+            <span class="nb-toggle-bar"></span>
+            <span class="nb-toggle-bar"></span>
+        </button>
+
+        <nav class="nb-main @(open ? "open" : "")">
+            <NavLink href="/" Match="NavLinkMatch.All" class="nb-pill" ActiveClass="active" @onclick="Close">Hem</NavLink>
+            <NavLink href="/about" class="nb-pill" ActiveClass="active" @onclick="Close">Om</NavLink>
+            <NavLink href="/projects" class="nb-pill" ActiveClass="active" @onclick="Close">Projekt</NavLink>
+            <NavLink href="/education" class="nb-pill" ActiveClass="active" @onclick="Close">Utbildning</NavLink>
+            <NavLink href="/blog" class="nb-pill" ActiveClass="active" @onclick="Close">Blogg</NavLink>
+        </nav>
+
+
+    </div>
+</header>
+
+@code {
+    bool open;
+    void Toggle() => open = !open;
+    void Close() => open = false;
+}
