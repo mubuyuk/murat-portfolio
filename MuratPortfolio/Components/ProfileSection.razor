@@ -1,19 +1,52 @@
-﻿
-<section class="profile-hero text-white pt-5 pb-3">
+﻿<section class="profile-hero">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-xl-8 px-4">
-                <div class="text-center">
-                    <img src="/images/murat_profile.jpg" class="profile-img mb-3" alt="Profilbild av Murat" />
-                </div>
+        <div class="row align-items-center justify-content-center g-4">
+            <!-- Bild -->
+            <div class="col-12 col-md-auto text-center">
+                <picture>
+                    <!-- valfritt: WebP först -->
+                    <source srcset="/images/murat_profile.jpg" type="image/jpeg">
+                    <img src="/images/murat_profile.jpg"
+                         alt="Murat Buyuksal"
+                         class="profile-img"
+                         width="180" height="180"
+                         decoding="async" />
+                </picture>
+            </div>
 
-                <div class="text-start">
-                   @*  <h1 class="display-5 fw-bold mb-2">
-                        Murat.<span class="text-success">Portfolio</span>
-                    </h1> *@
-                    <span class="badge custom-badge">Systemutvecklare inom .NET och Microsoft Azure (Studerande)</span>
+            <!-- Innehåll -->
+            <div class="col-12 col-md-8 col-lg-7">
+                
+
+                <!-- H1: ha EN per sida (bra för SEO) -->
+                @* <h1 class="profile-title mb-2">Murat Buyuksal</h1> *@
+                <!-- Overline/roll -->
+                <span class="badge custom-badge mb-2">
+                    Systemutvecklare inom .NET & Microsoft Azure (studerande)
+                </span>
+                <p class="profile-subtitle mb-3">
+                    Bygger moln-drivna applikationer i .NET, Blazor och Azure. Gillar ren arkitektur, CI/CD och infrastruktur som kod.
+                </p>
+
+                <!-- Sociala (i profile-hero) -->
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <a href="https://github.com/mubuyuk" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/murat-buyuksal-1887a9302" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="/files/Murat-Buyuksal-cv.pdf" target="_blank" rel="noopener" aria-label="CV">
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </a>
+                    <a href="mailto:muratbuyuksal@gmail.com" aria-label="E-post">
+                        <i class="bi bi-envelope"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+	<BlogSection />
+
+
 </section>
