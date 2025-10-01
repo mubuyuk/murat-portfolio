@@ -39,25 +39,16 @@
     scrollbar-width: none;
 }
 
-/* Kort (nu <article>, inte <a>) */
 .post-card {
     flex: 0 0 auto;
-    width: clamp(280px, 36vw, 720px); /* lite bredare som i bilden */
+    width: clamp(280px, 36vw, 720px);
     padding: 1.25rem 1.5rem;
     border-radius: 16px;
     background: rgba(17,24,39,.85);
-    /*border: 1px solid rgba(148,163,184,.15);*/
     color: var(--text);
     scroll-snap-align: start;
-    /*transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;*/
 }
 
-    /*.post-card:hover {
-        border-color: var(--accent);
-        box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-*/
-/* Datum + liten vänsterstick (som i skärmdumpen) */
 .post-date {
     position: relative;
     font-size: .9rem;
