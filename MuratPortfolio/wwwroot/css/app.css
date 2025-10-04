@@ -12,19 +12,6 @@
     color-scheme: dark;
 }
 
-/* Mobil-fintune: djupare bakgrund + lite dämpad accent för bättre kontrast */
-@media (max-width: 768px) {
-    :root {
-        --bg: #0b1220;
-        --text: #f3f6fb;
-        --muted: #b8c4d6;
-        --accent: #22c2a3;
-        --ring: rgba(34,194,163,.35);
-    }
-}
-
-/* ===== Typografi- och färg-justeringar som många komponenter använder ===== */
-
 /* Rubriker och posttitlar alltid tydliga */
 h1, h2, h3, .post-title {
     color: var(--text);
