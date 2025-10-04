@@ -1,10 +1,45 @@
 /* ===== Design tokens ===== */
 :root {
-    --bg: #111827;
-    --text: #e5e7eb;
-    --muted: #94a3b8;
-    --accent: #2dd4bf;
-    --ring: rgba(45,212,191,.35);
+    --bg: #0f172a; /* mörk bakgrund (desktop default) */
+    --text: #f1f5f9; /* nästan vit text */
+    --muted: #cbd5e1; /* sekundär text */
+    --accent: #30e0b6; /* brand */
+    --ring: rgba(48,224,182,.35);
+}
+
+/* Respektera OS-darkmode (behåller dina värden men låter browsern optimera) */
+:root {
+    color-scheme: dark;
+}
+
+/* Mobil-fintune: djupare bakgrund + lite dämpad accent för bättre kontrast */
+@media (max-width: 768px) {
+    :root {
+        --bg: #0b1220;
+        --text: #f3f6fb;
+        --muted: #b8c4d6;
+        --accent: #22c2a3;
+        --ring: rgba(34,194,163,.35);
+    }
+}
+
+/* ===== Typografi- och färg-justeringar som många komponenter använder ===== */
+
+/* Rubriker och posttitlar alltid tydliga */
+h1, h2, h3, .post-title {
+    color: var(--text);
+}
+
+/* Meta/datum – lite ljusare grå för läsbarhet (särskilt på mobil) */
+.post-date, .xp-meta {
+    color: #a8b3c9;
+}
+
+/* Globalt radavstånd (lite luftigare på mobil) */
+@media (max-width: 768px) {
+    body {
+        line-height: 1.65;
+    }
 }
 
 /* ===== Base ===== */
@@ -60,7 +95,7 @@ a {
     text-align: center;
 }
 
-/* ===== (Valfritt) Blazor default UI – ta bort om du inte vill ha dem ===== */
+/* ===== Blazor default UI (valfritt) ===== */
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
