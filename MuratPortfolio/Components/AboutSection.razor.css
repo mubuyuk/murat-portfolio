@@ -29,12 +29,11 @@
 
 .about-grid {
     display: grid;
-    grid-template-columns: 260px 1fr; /* bild + text */
+    grid-template-columns: 260px 1fr;
     gap: 2rem;
     align-items: start;
 }
 
-/* Profilbild */
 .about-photo img {
     width: 240px;
     height: 240px;
@@ -43,7 +42,6 @@
     box-shadow: 0 0 0 3px var(--ring, rgba(148,163,184,.35));
 }
 
-/* Introtext + citat */
 .about-intro p {
     color: var(--text, #e5e7eb);
     line-height: 1.75;
@@ -60,7 +58,7 @@
     margin: 0;
 }
 
-/* Mobil: stacka och centrera */
+/* Responsiv layout */
 @media (max-width: 768px) {
     .about-grid {
         grid-template-columns: 1fr;
@@ -75,24 +73,35 @@
 }
 
 /* ===== Erfarenhet ===== */
+
 #erfarenhet {
     position: relative;
     margin-top: 2rem;
-    padding-left: 2.2rem;
+    padding-left: 2rem;
     text-align: left;
 }
 
-    /* Vertikal linje */
+    /* Vertikal linje i vänsterkant */
     #erfarenhet::before {
         content: "";
         position: absolute;
         top: 1.5rem;
-        left: .6rem;
+        bottom: 0;
+        left: .7rem;
         width: 2px;
         background: rgba(148,163,184,.18);
         border-radius: 2px;
     }
 
+    #erfarenhet h2 {
+        text-align: center;
+        font-weight: 800;
+        font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem);
+        color: #30e0b6;
+        margin-bottom: 2rem;
+    }
+
+/* Varje erfarenhet */
 .xp {
     position: relative;
     padding: 0 0 2rem 1rem;
@@ -100,7 +109,6 @@
     border-left: 1px solid transparent;
 }
 
-    /* Rubrik & meta */
     .xp h3 {
         margin: 0 0 .35rem;
         font-size: 1.06rem;
@@ -118,6 +126,7 @@
     align-items: baseline;
 }
 
+/* Punktlista med diskreta bullets */
 .xp ul {
     list-style: none;
     margin: .4rem 0 0;
@@ -140,23 +149,25 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: var(--brand);
+        background: #30e0b6;
         box-shadow: 0 0 0 3px rgba(48,224,182,.12);
         transform: translateY(-50%);
     }
 
+/* Sista posten */
 .xp:last-child {
     padding-bottom: .25rem;
 }
 
-/* Mobiljustering för linjen */
+/* Mobiljustering */
 @media (max-width: 640px) {
     #erfarenhet {
-        padding-left: 1.6rem;
+        padding-left: 1.5rem;
     }
 
         #erfarenhet::before {
-            left: .45rem;
+            left: .5rem;
+            background: rgba(148,163,184,.18);
         }
 }
 
