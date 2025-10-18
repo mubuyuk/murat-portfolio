@@ -1,7 +1,7 @@
 /* ===== Design tokens ===== */
 :root {
     --bg: #0f172a; /* mörk bakgrund (desktop default) */
-    --text: #f1f5f9; /* nästan vit text */
+    --text: #ffffff; /* nästan vit text */
     --muted: #cbd5e1; /* sekundär text */
     --accent: #30e0b6; /* brand */
     --ring: rgba(48,224,182,.35);
@@ -28,6 +28,25 @@ h1, h2, h3, .post-title {
         line-height: 1.65;
     }
 }
+
+.home-projects {
+    display: flex;
+    flex-direction: column; /* barnen (komponenten + länken) staplas */
+}
+
+    .home-projects .view-all {
+        align-self: flex-end; /* nu kan den hoppa till höger */
+        margin-top: 1.5rem; /* luft från projekten ovanför */
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.2s ease;
+    }
+
+        .home-projects .view-all:hover {
+            color: var(--accent);
+        }
+
 
 /* ===== Base ===== */
 html, body {
@@ -74,6 +93,15 @@ a {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+    .section:first-of-type {
+        padding-top: 4rem;
+    }
+
+    /* Men de efterföljande får mindre mellanrum */
+    .section + .section {
+        padding-top: 2rem; /* mindre luft mellan sektionerna */
+    }
 
 .section-title {
     font-size: 2rem;

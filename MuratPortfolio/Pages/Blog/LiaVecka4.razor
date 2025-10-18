@@ -1,0 +1,122 @@
+﻿@page "/blog/lia-vecka-4"
+<PageTitle>LIA vecka 4 – Förståelse för containers och nätverk</PageTitle>
+
+<article class="blog-article container py-5">
+    <div class="article-wrap mx-auto">
+
+        <!-- Hero -->
+        <figure class="post-hero mb-3">
+            <img src="/images/blog/lia-vecka4.jpg" alt="Förståelse för containers och nätverk" />
+        </figure>
+
+        <!-- Brödsmulor -->
+        <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Hem</a></li>
+                <li class="breadcrumb-item"><a href="/blog">Blogg</a></li>
+                <li class="breadcrumb-item active" aria-current="page">LIA vecka 4</li>
+            </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="article-head">
+            <time datetime="2025-10-13" class="text-muted d-block mb-1">13 oktober 2025</time>
+            <h1 class="post-title">Vecka 4 – Förståelse för containers och nätverk</h1>
+            <p class="post-subtitle">
+                Den fjärde veckan fokuserade jag på att fördjupa förståelsen för hur containers, nätverk och automatiserad
+                bygg- och deployprocess fungerar i praktiken med GitLab, Kaniko och Argo CD.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">Kubernetes</span>
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">Kaniko</span>
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">GitLab</span>
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">Argo CD</span>
+            </div>
+        </header>
+
+        <!-- Innehåll -->
+        <div class="article-body">
+
+            <section>
+                <h2>Containers och byggprocess</h2>
+                <p>
+                    Under den fjärde veckan jobbade jag vidare med att få bättre förståelse för hur containers och nätverk fungerar i min miljö.
+                    Jag började arbeta mer med <strong>Kaniko</strong>, som är ett verktyg för att bygga Docker-images direkt inuti Kubernetes utan att behöva ha Docker installerat.
+                </p>
+                <p>
+                    Det gör att jag kan bygga och skicka upp mina images till mitt eget <strong>GitLab self-hosted</strong>, som jag kör i mitt Kubernetes-kluster.
+                    Det innebär att jag själv ansvarar för hela kedjan – från kod, till byggprocess och deployment via <strong>Argo CD</strong>.
+                </p>
+            </section>
+
+            <section>
+                <h2>CI/CD och GitLab Runner</h2>
+                <p>
+                    Jag fick även igång <strong>GitLab Runner</strong> – en tjänst som kör mina CI/CD-pipelines och bygger koden automatiskt.
+                </p>
+                <p>
+                    Det var lite krångligt i början, men när jag väl fick den att registrera sig mot GitLab började jag förstå hur allt samspelar mellan
+                    <em>build</em>, <em>registry</em> och <em>deployment</em>.
+                </p>
+            </section>
+
+            <section>
+                <h2>MetalLB och nätverk</h2>
+                <p>
+                    En del av veckan gick också åt till att förstå hur <strong>MetalLB</strong> hanterar IP-adresser och varför vissa tjänster inte fick någon extern IP.
+                    Efter lite testande och felsökning började jag se hur IP-poolerna fungerar och hur det påverkar åtkomsten till till exempel GitLab och mina appar.
+                </p>
+            </section>
+
+            <section>
+                <h2>Reflektion</h2>
+                <p>
+                    Veckan var intensiv men väldigt lärorik. Jag känner att jag börjar få en bra helhetsbild över hur allt hänger ihop –
+                    från att koden pushas till GitLab, till att en image byggs av Kaniko och deployas automatiskt i klustret via Argo CD.
+                </p>
+                <p>
+                    Det känns som jag tagit ett stort steg i förståelsen av hur en riktig DevOps-miljö fungerar i praktiken.
+                </p>
+            </section>
+
+            <section>
+                <h2>Framåt</h2>
+                <p>
+                    Nästa steg blir att få hela flödet att rulla stabilt mellan GitLab, Kaniko och Argo CD, och börja dokumentera processen
+                    så att jag kan använda den som mall för framtida projekt.
+                </p>
+            </section>
+
+            <!-- Sammanfattningsruta -->
+            <aside class="summary-box mt-4">
+                <h3 class="h5 fw-bold mb-3">Sammanfattning – vecka 4</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-3">
+                        <strong>Kaniko</strong><br />
+                        Byggde Docker-images direkt i Kubernetes utan Docker-demon.<br />
+                        <span class="why">— Varför:</span> Effektivare, säkrare och molnintegrerat bildbygge.
+                    </li>
+                    <li class="mb-3">
+                        <strong>GitLab Runner</strong><br />
+                        Fick CI/CD-pipelines att köra automatiskt i mitt kluster.<br />
+                        <span class="why">— Varför:</span> Förståelse för hela bygg- och deployflödet.
+                    </li>
+                    <li class="mb-3">
+                        <strong>MetalLB</strong><br />
+                        Testade IP-pooler och extern åtkomst till tjänster.<br />
+                        <span class="why">— Varför:</span> Lärdom om hur nätverkshanteringen påverkar tillgänglighet.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Reflektion</strong><br />
+                        Ser nu sambandet mellan kod, build, image och deployment i praktiken.
+                    </li>
+                    <li>
+                        <strong>Framåt</strong><br />
+                        Målet är att stabilisera flödet GitLab → Kaniko → Argo CD och börja dokumentera processen som mall.
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+</article>

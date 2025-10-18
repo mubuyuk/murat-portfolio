@@ -1,3 +1,111 @@
-﻿
-<p>Lista/projektrutor. (Senare: hämta från API / Shared-modeller.)</p>
+﻿@inject NavigationManager Nav
 
+<section class="projects-section">
+    <div class="projects-container">
+
+        <div class="projects-header">
+            <span class="overline">Projekt</span>
+
+            @if (Max.HasValue)
+            {
+                <a class="view-all" href="/projects" aria-label="Visa alla projekt">
+                    Visa alla projekt →
+                </a>
+            }
+        </div>
+
+        <div class="projects-list">
+            @foreach (var p in Visible)
+            {
+                <article class="project-card"
+                         role="button"
+                         aria-label="Visa mer om @p.Title"
+                         @onclick="@(() => GoToDetail(p))">
+
+                    @if (!string.IsNullOrWhiteSpace(p.GitHubUrl))
+                    {
+                        <a class="gh-link"
+                           href="@p.GitHubUrl"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="Öppna GitHub för @p.Title"
+                           @onclick:stopPropagation="true">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    }
+
+                    <div class="card-grid">
+                        @if (!string.IsNullOrEmpty(p.ImageUrl))
+                        {
+                            <div class="card-media">
+                                <img src="@p.ImageUrl" alt="" loading="lazy" decoding="async" />
+                            </div>
+                        }
+
+                        <div class="card-body">
+                            <h3 class="project-title">@p.Title</h3>
+                            <p class="project-summary">@p.Summary</p>
+
+                            <ul class="pills tech-pills" aria-label="Tekniker">
+                                @foreach (var t in p.Tech)
+                                {
+                                    <li>@t</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+@code {
+    private List<ProjectItem> projects = new()
+    {
+        new ProjectItem {
+            Title = "Todo Platform (React + .NET 8 + SQL)",
+            Slug = "todo-platform",
+            Summary = "Fullstack todo-app med React (Vite), .NET 8 Minimal API och SQL Server container. Byggs med Docker och deployas via GitOps.",
+            Tech = new() { "React", ".NET 8", "SQL Server", "Docker", "Kubernetes", "NGINX" },
+            ImageUrl = "/images/bonfire_logo.png",
+            GitHubUrl = "https://github.com/mubuyuk/to-do-app-k3s-argocd"
+        },
+        new ProjectItem {
+            Title = "Software Factory – App-of-Apps (Argo CD)",
+            Slug = "software-factory-app-of-apps",
+            Summary = "GitOps-plattform som bootstrappar ingress-nginx, cert-manager, observability och app-tjänster.",
+            Tech = new() { "Argo CD", "Helm", "Kubernetes", "Kaniko", "GitLab Runner" },
+            ImageUrl = "/images/bonfire_logo.png",
+            GitHubUrl = "#"
+        },
+    };
+
+    public class ProjectItem
+    {
+        public string Title { get; set; } = "";
+        public string Slug { get; set; } = "";
+        public string Summary { get; set; } = "";
+        public List<string> Tech { get; set; } = new();
+        public string? ImageUrl { get; set; }
+        public string? GitHubUrl { get; set; }
+    }
+
+    [Parameter] public int? Max { get; set; }
+
+    private IEnumerable<ProjectItem> Visible
+    {
+        get
+        {
+            if (Max.HasValue)
+                return projects.Take(Max.Value);
+            return projects;
+        }
+    }
+
+    private void GoToDetail(ProjectItem p)
+    {
+        if (!string.IsNullOrWhiteSpace(p.Slug))
+            Nav.NavigateTo($"/projects/{p.Slug}");
+    }
+}

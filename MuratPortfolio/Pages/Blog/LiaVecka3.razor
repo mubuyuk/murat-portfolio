@@ -1,0 +1,119 @@
+﻿@page "/blog/lia-vecka-3"
+<PageTitle>LIA vecka 3 – Fördjupning i Argo CD och applikationshantering</PageTitle>
+
+<article class="blog-article container py-5">
+    <div class="article-wrap mx-auto">
+
+        <!-- Hero -->
+        <figure class="post-hero mb-3">
+            <img src="/images/blog/lia-vecka3.jpg" alt="Fördjupning i Argo CD och applikationshantering" />
+        </figure>
+
+        <!-- Brödsmulor -->
+        <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Hem</a></li>
+                <li class="breadcrumb-item"><a href="/blog">Blogg</a></li>
+                <li class="breadcrumb-item active" aria-current="page">LIA vecka 3</li>
+            </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="article-head">
+            <time datetime="2025-10-06" class="text-muted d-block mb-1">6 oktober 2025</time>
+            <h1 class="post-title">Vecka 3 – Fördjupning i Argo CD och applikationshantering</h1>
+            <p class="post-subtitle">
+                Under den tredje veckan på praktiken fördjupade jag mig i hur Argo CD fungerar på djupet
+                och hur GitOps-flödet styr deployment-processen i Kubernetes.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">Argo CD</span>
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">GitOps</span>
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">Kubernetes</span>
+                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis">App-of-Apps</span>
+            </div>
+        </header>
+
+        <!-- Innehåll -->
+        <div class="article-body">
+
+            <section>
+                <h2>Fördjupning i Argo CD</h2>
+                <p>
+                    Under den tredje veckan på praktiken började jag känna mig mer bekväm i miljön och fördjupade mig i hur <strong>Argo CD</strong> fungerar på djupet.
+                    Jag lärde mig mer om hur <strong>GitOps-flödet</strong> styr deployment-processen och hur man kan bygga upp en tydlig struktur med flera applikationer.
+                </p>
+            </section>
+
+            <section>
+                <h2>App-of-Apps-mönstret</h2>
+                <p>
+                    Jag skapade flera egna applikationer i Argo CD och använde det så kallade <strong>App-of-Apps-mönstret</strong>,
+                    där en huvudapp hanterar flera underappar – till exempel en frontend, en backend och plattformsverktyg som ingress-nginx och cert-manager.
+                </p>
+                <p>
+                    Det gjorde det enklare att automatisera och hålla ordning på miljön och gav en tydlig överblick över hur applikationerna hänger ihop.
+                </p>
+            </section>
+
+            <section>
+                <h2>GitOps i praktiken</h2>
+                <p>
+                    Jag började också förstå hur alla delar hänger ihop – från <strong>Git-repo</strong> till färdig körande applikation i klustret.
+                    Att se hur Argo CD automatiskt synkroniserar appar efter varje commit i GitHub var en tydlig demonstration av hur kraftfullt
+                    GitOps-tänket är i praktiken.
+                </p>
+            </section>
+
+            <section>
+                <h2>Reflektion</h2>
+                <p>
+                    Den här veckan gick jag från att bara följa instruktioner till att verkligen förstå varför saker fungerar som de gör.
+                    Jag insåg hur viktigt det är att ha struktur i sina YAML-filer och att förstå sambandet mellan namespaces, services och ingress-regler.
+                </p>
+                <p>
+                    Jag känner mig nu mer trygg i att navigera i Argo CD och att felsöka när något inte deployas som planerat.
+                </p>
+            </section>
+
+            <section>
+                <h2>Framåt</h2>
+                <p>
+                    Nästa steg blir att utforska <strong>Helm charts</strong> för att hantera applikationer mer dynamiskt,
+                    samt att börja planera för övervakning med <strong>Prometheus</strong> och <strong>Grafana</strong> längre fram.
+                </p>
+            </section>
+
+            <!-- Sammanfattningsruta -->
+            <aside class="summary-box mt-4">
+                <h3 class="h5 fw-bold mb-3">Sammanfattning – vecka 3</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-3">
+                        <strong>Argo CD-fördjupning</strong><br />
+                        Lärde mig hur GitOps-flödet styr deployment-processen och hur flera applikationer organiseras.<br />
+                        <span class="why">— Varför:</span> Förståelse för hela kedjan från Git till kluster.
+                    </li>
+                    <li class="mb-3">
+                        <strong>App-of-Apps-mönstret</strong><br />
+                        En huvudapp hanterar flera underappar (frontend, backend, ingress-nginx, cert-manager).<br />
+                        <span class="why">— Varför:</span> Ger struktur, automatisering och bättre överblick.
+                    </li>
+                    <li class="mb-3">
+                        <strong>GitOps i praktiken</strong><br />
+                        Ser hur commit i GitHub leder till automatisk sync i klustret.<br />
+                        <span class="why">— Varför:</span> Visar styrkan i Git som “source of truth”.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Reflektion</strong><br />
+                        Förståelse för YAML-struktur, namespaces och ingress-regler; tryggare felsökning i Argo CD.
+                    </li>
+                    <li>
+                        <strong>Framåt</strong><br />
+                        Utforska Helm charts och planera övervakning med Prometheus och Grafana.
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+</article>
