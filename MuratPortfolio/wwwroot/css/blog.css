@@ -1,30 +1,28 @@
-﻿/* ====== Bas ====== */
+﻿/* =========================================
+   FÄRG-TOKENS (dark bakgrund, ljus text)
+========================================= */
 :root {
-    --accent: #30e0b6; /* din gröna accent */
-    --text: #e5eef4; /* ljus text för dark bg */
-    --text-muted: #99a7b5;
-    --card-bg: rgba(255,255,255,0.06);
-    --card-border: rgba(255,255,255,0.12);
-    --summary-bg: rgba(255,255,255,0.08);
+    --accent: #30e0b6; /* grön accent */
+    --text: #e5e7eb; /* primär brödtext */
+    --muted: #9ca3af; /* dämpad text */
+    --text-muted: var(--muted); /* alias för konsistens */
+
+    --card-bg: rgba(17,24,39,.85); /* mörk kort-bakgrund */
+    --card-border: rgba(148,163,184,.18);
+    --summary-bg: rgba(255, 255, 255, 0.06);
+    --code-bg: rgba(96,165,250,.12);
+    --code-text: #60a5fa;
 }
 
-/* För ljust tema */
-@media (prefers-color-scheme: light) {
-    :root {
-        --text: #1f2937;
-        --text-muted: #6b7280;
-        --card-bg: #ffffff;
-        --card-border: #e5e7eb;
-        --summary-bg: #f9fafb;
-    }
-}
+/* =========================================
+   ARTIKEL-LAYOUT & TYPOGRAFI
+========================================= */
 
-/* ====== Artikel-layout ====== */
 .blog-article {
     color: var(--text);
 }
 
-    /* Centrerar innehållet men inte texten */
+    /* Wrapper för maxbredd */
     .blog-article .article-wrap {
         max-width: 860px;
         margin-left: auto;
@@ -38,11 +36,12 @@
         color: var(--text);
     }
 
+    /* Dämpad text (t.ex. metadata) */
     .blog-article .text-muted {
         color: var(--text-muted) !important;
     }
 
-    /* Rubriker – bas */
+    /* Huvudrubrik på sidan */
     .blog-article .post-title {
         font-weight: 800;
         font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
@@ -50,13 +49,22 @@
         margin-bottom: .5rem;
     }
 
+    /* Underrubrik / ingress */
     .blog-article .post-subtitle {
         font-size: 1.05rem;
         color: var(--text-muted);
         margin-bottom: 1.25rem;
     }
 
-    /* Hero-bild */
+    /* Sektion-spacing */
+    .blog-article section {
+        margin-bottom: 2rem;
+    }
+
+    /* =========================================
+   HERO-BILD
+========================================= */
+
     .blog-article .post-hero img {
         border-radius: .75rem;
         max-height: 340px;
@@ -71,12 +79,18 @@
         margin-top: .5rem;
     }
 
-    /* Breadcrumbs låg vikt */
+    /* =========================================
+   BREADCRUMBS
+========================================= */
+
     .blog-article .breadcrumb {
         font-size: .9rem;
     }
 
-    /* ====== Listor (om/ när du använder list-group) ====== */
+    /* =========================================
+   LISTOR (t.ex. Bootstrap list-group)
+========================================= */
+
     .blog-article .list-group .list-group-item {
         background: rgba(255,255,255,.05);
         border-color: rgba(255,255,255,.12);
@@ -87,9 +101,12 @@
         color: var(--text-muted);
     }
 
-    /* ====== Sammanfattning ====== */
+    /* =========================================
+   SAMMANFATTNING / INFOBOX
+========================================= */
+
     .blog-article .summary-box {
-        background: rgba(255, 255, 255, 0.06);
+        background: var(--summary-bg);
         border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: .6rem;
         padding: 1.5rem;
@@ -100,7 +117,10 @@
             margin-bottom: 1rem;
         }
 
-    /* ====== Länkar ====== */
+    /* =========================================
+   LÄNKAR
+========================================= */
+
     .blog-article a {
         color: var(--accent);
         text-decoration: none;
@@ -110,21 +130,28 @@
             text-decoration: underline;
         }
 
+    /* Extra “varför”-markering */
     .blog-article .why {
         font-weight: 600;
         color: #60a5fa; /* blå accent */
     }
 
-    /* ====== Kod inline ====== */
+    /* =========================================
+   INLINE-KOD
+========================================= */
+
     .blog-article code {
-        background: rgba(96,165,250,.12); /* blå toning bakom */
-        color: #60a5fa;
+        background: var(--code-bg);
+        color: var(--code-text);
         padding: 0.1rem 0.3rem;
         border-radius: 4px;
         font-size: 0.9em;
     }
 
-/* ====== Små badges (Bootstrap override) ====== */
+/* =========================================
+   BADGES / BOOTSTRAP OVERRIDES
+========================================= */
+
 .bg-secondary-subtle {
     background-color: rgba(148,163,184,.18) !important;
 }
@@ -133,17 +160,11 @@
     color: var(--text-muted) !important;
 }
 
-/* ====== Utilities ====== */
-.object-cover {
-    object-fit: cover;
-}
+/* =========================================
+   RUBRIKER I ARTIKELN
+========================================= */
 
-/* ====== Sektion-spacing ====== */
-.blog-article section {
-    margin-bottom: 2rem;
-}
-
-/* ====== Ta bort ev. ikon/balk vid rubriker ====== */
+/* Ta bort dekor innan/efter rubriker om du hade det globalt */
 .blog-article h2::before,
 .blog-article h2::after {
     content: none !important;
@@ -154,33 +175,31 @@
     padding-left: 0;
 }
 
+/* Sektion-rubrik (nivå 2) */
 .blog-article h2 {
     font-size: clamp(1.2rem, 1rem + .6vw, 1.5rem);
     font-weight: 700;
     margin: 1.75rem 0 .75rem;
-    color: #e5e7eb; /* ljusare än body-text för MER kontrast i dark */
+    color: #f3f4f6; /* lite ljusare än body-text */
     letter-spacing: .3px;
     border-bottom: 1px solid rgba(255,255,255,.25);
     padding-bottom: .3rem;
 }
 
+/* Underrubrik (nivå 3) */
 .blog-article h3 {
     font-size: clamp(1rem, .9rem + .4vw, 1.125rem);
     font-weight: 700;
-    color: #cbd5e1; /* silver-blå ton för nivå 3 */
+    color: #cbd5e1;
     margin-top: 1.25rem;
     margin-bottom: .25rem;
     letter-spacing: .2px;
 }
 
-/* Light mode-tweaks (hög kontrast mot ljus bakgrund) */
-@media (prefers-color-scheme: light) {
-    .blog-article h2 {
-        color: #111827; /* nästan svart för riktigt bra läsbarhet */
-        border-bottom: 1px solid rgba(0,0,0,.14);
-    }
+/* =========================================
+   UTILITIES
+========================================= */
 
-    .blog-article h3 {
-        color: #1f2937; /* mörk grå för nivå 3 */
-    }
+.object-cover {
+    object-fit: cover;
 }

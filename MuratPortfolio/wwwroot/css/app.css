@@ -2,9 +2,9 @@
 :root {
     --bg: #0f172a; /* mörk bakgrund (desktop default) */
     --text: #ffffff; /* nästan vit text */
-    --muted: #cbd5e1; /* sekundär text */
+    --muted: #ffffff; /* sekundär text */
     --accent: #30e0b6; /* brand */
-    --ring: rgba(48,224,182,.35);
+    --ring: #30e0b6;
 }
 
 /* Respektera OS-darkmode (behåller dina värden men låter browsern optimera) */
@@ -162,8 +162,3 @@ a {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
-
-/* Kod (valfritt) */
-code {
-    color: #c02d76;
-}
