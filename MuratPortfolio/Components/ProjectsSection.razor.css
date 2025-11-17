@@ -27,6 +27,7 @@
 .projects-section {
     color: var(--text);
     max-width: 960px;
+    margin: 0 auto;
 }
 
 .overline {
@@ -47,12 +48,11 @@
 }
 
 .projects-list {
-    --media-w: 200px;
-    --media-h: 120px;
-    --gap: .75rem;
+    --media-max-w: 220px; /* maxbredd på bildkolumn på desktop */
+    --gap: .9rem;
     display: flex;
     flex-direction: column;
-    gap: .9rem;
+    gap: var(--gap);
 }
 
 .project-card {
@@ -87,7 +87,7 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: var(--media-w) 1fr;
+    grid-template-columns: minmax(140px, var(--media-max-w)) 1fr;
     gap: var(--gap);
 }
 
@@ -95,22 +95,30 @@
     .card-grid {
         grid-template-columns: 1fr;
     }
+
+    .card-media {
+        max-width: 100%;
+        margin-bottom: .5rem;
+    }
 }
 
 
 .card-media {
     align-self: start;
-    height: var(--media-h);
+    width: 100%;
+    aspect-ratio: 16 / 9; /* ger ett enhetligt format */
     background: rgba(148,163,184,.06);
     border: 1px solid rgba(148,163,184,.18);
     border-radius: 10px;
     overflow: hidden;
 }
 
+    /* Själva bilden */
     .card-media img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover; /* fyller rutan, beskär vid behov */
+        object-position: center;
         display: block;
     }
 

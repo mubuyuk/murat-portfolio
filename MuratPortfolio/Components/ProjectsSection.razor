@@ -17,44 +17,46 @@
         <div class="projects-list">
             @foreach (var p in Visible)
             {
-                <article class="project-card"
-                         role="button"
-                         aria-label="Visa mer om @p.Title"
-                         @onclick="@(() => GoToDetail(p))">
+                <article class="project-card">
+                    <a class="project-link-wrapper"
+                       href="@p.Slug"
+                       aria-label="Visa mer om @p.Title">
 
-                    @if (!string.IsNullOrWhiteSpace(p.GitHubUrl))
-                    {
-                        <a class="gh-link"
-                           href="@p.GitHubUrl"
-                           target="_blank"
-                           rel="noopener"
-                           aria-label="Öppna GitHub för @p.Title"
-                           @onclick:stopPropagation="true">
-                            <i class="bi bi-github"></i>
-                        </a>
-                    }
-
-                    <div class="card-grid">
-                        @if (!string.IsNullOrEmpty(p.ImageUrl))
+                        @if (!string.IsNullOrWhiteSpace(p.GitHubUrl))
                         {
-                            <div class="card-media">
-                                <img src="@p.ImageUrl" alt="" loading="lazy" decoding="async" />
-                            </div>
+                            <a class="gh-link"
+                               href="@p.GitHubUrl"
+                               target="_blank"
+                               rel="noopener"
+                               aria-label="Öppna GitHub för @p.Title"
+                               @onclick:stopPropagation="true">
+                                <i class="bi bi-github"></i>
+                            </a>
                         }
 
-                        <div class="card-body">
-                            <h3 class="project-title">@p.Title</h3>
-                            <p class="project-summary">@p.Summary</p>
+                        <div class="card-grid">
+                            @if (!string.IsNullOrEmpty(p.ImageUrl))
+                            {
+                                <div class="card-media">
+                                    <img src="@p.ImageUrl" alt="" loading="lazy" decoding="async" />
+                                </div>
+                            }
 
-                            <ul class="pills tech-pills" aria-label="Tekniker">
-                                @foreach (var t in p.Tech)
-                                {
-                                    <li>@t</li>
-                                }
-                            </ul>
+                            <div class="card-body">
+                                <h3 class="project-title">@p.Title</h3>
+                                <p class="project-summary">@p.Summary</p>
+
+                                <ul class="pills tech-pills" aria-label="Tekniker">
+                                    @foreach (var t in p.Tech)
+                                    {
+                                        <li>@t</li>
+                                    }
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </article>
+
             }
         </div>
     </div>
@@ -64,22 +66,22 @@
     private List<ProjectItem> projects = new()
     {
         new ProjectItem {
-            Title = "Todo Platform (React + .NET 8 + SQL)",
-            Slug = "todo-platform",
-            Summary = "Fullstack todo-app med React (Vite), .NET 8 Minimal API och SQL Server container. Byggs med Docker och deployas via GitOps.",
-            Tech = new() { "React", ".NET 8", "SQL Server", "Docker", "Kubernetes", "NGINX" },
-            ImageUrl = "/images/bonfire_logo.png",
-            GitHubUrl = "https://github.com/mubuyuk/to-do-app-k3s-argocd"
-        },
-        new ProjectItem {
-            Title = "Software Factory – App-of-Apps (Argo CD)",
-            Slug = "software-factory-app-of-apps",
-            Summary = "GitOps-plattform som bootstrappar ingress-nginx, cert-manager, observability och app-tjänster.",
-            Tech = new() { "Argo CD", "Helm", "Kubernetes", "Kaniko", "GitLab Runner" },
-            ImageUrl = "/images/bonfire_logo.png",
+            Title = "Software Factory",
+            Slug = "/projects/software-factory",
+            Summary = "En DevOps-plattform byggd från grunden i Kubernetes med GitLab, Argo CD och automatiserade pipelines. Ett LIA-projekt där jag lärde mig hur modern utveckling och drift hänger ihop.",
+            Tech = new() { "Kubernetes (k3s)", "Argo CD", "GitOps", "GitLab CI/CD", "GitLab Runner" },
+            ImageUrl = "/images/project_bonfire_logo.png",
             GitHubUrl = "#"
         },
-    };
+        new ProjectItem {
+            Title = "Blazor WebAssembly Portfolio",
+            Slug = "/projects/blazor-portfolio",
+            Summary = "Portfoliosida där jag bygger upp min frontend i Blazor WebAssembly med C# och .NET. Projektet hostas i Azure och är förberett för att senare kunna kopplas mot Azure Functions och en databas.",
+            Tech = new() { "Blazor WebAssembly", "C#", ".NET", "Azure" },
+            ImageUrl = "/images/project_portfolio_logo.png",
+            GitHubUrl = "https://github.com/mubuyuk/portfolio-blazor"
+        },
+};
 
     public class ProjectItem
     {

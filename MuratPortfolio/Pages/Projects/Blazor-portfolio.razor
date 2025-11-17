@@ -1,0 +1,185 @@
+﻿@page "/projects/blazor-portfolio"
+<PageTitle>Blazor WebAssembly Portfolio – Projekt</PageTitle>
+
+<article class="blog-article container py-5">
+    <div class="article-wrap mx-auto">
+
+        <!-- Hero -->
+       @*  <figure class="post-hero mb-3">
+            <img src="#"
+                 width="180"
+                 height="180"
+                 alt="Blazor WebAssembly Portfolio" />
+        </figure> *@
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Hem</a></li>
+                <li class="breadcrumb-item"><a href="/projects">Projekt</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Blazor WebAssembly Portfolio
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="article-head">
+            <h1 class="post-title">Blazor WebAssembly Portfolio</h1>
+            <p class="post-subtitle">
+                Min personliga portfoliosida byggd i Blazor WebAssembly med C# och .NET.
+                Sidan fungerar som en samlingsplats för mina projekt, min LIA-blogg och mitt lärande
+                inom backend, cloud och DevOps.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge text-bg-dark">Blazor WebAssembly</span>
+                <span class="badge text-bg-dark">C# / .NET</span>
+                <span class="badge text-bg-dark">Azure Static Web Apps</span>
+                <span class="badge text-bg-dark">Azure Functions (förberedd)</span>
+            </div>
+        </header>
+
+        <!-- Innehåll -->
+        <div class="article-body">
+
+            <section class="mb-4">
+                <h2>Syftet med portfoliosidan</h2>
+                <p>
+                    Jag ville ha mer än bara ett CV eller en länk till GitHub. Den här sidan är tänkt
+                    som en plats där jag kan samla mina projekt, skriva om vad jag lär mig och visa hur
+                    jag tänker kring .NET, moln och DevOps.
+                </p>
+                <p>
+                    Portfoliosidan är därför både ett skyltfönster och en sandlåda. Jag använder den för att:
+                </p>
+                <ul>
+                    <li>visa upp projekt på ett mer begripligt sätt än bara kod på GitHub</li>
+                    <li>samla min LIA-blogg och reflektioner vecka för vecka</li>
+                    <li>testa idéer kring arkitektur, deployment och moln</li>
+                </ul>
+            </section>
+
+            <section class="mb-4">
+                <h2>Arkitektur & upplägg</h2>
+                <p>
+                    Sidan är byggd som en <strong>Single Page Application (SPA)</strong> i
+                    <strong>Blazor WebAssembly</strong>. Allt UI och logik är skrivet i C#, vilket
+                    gör att jag kan jobba i samma språk som jag använder på backend-sidan.
+                </p>
+                <p>
+                    Layouten är uppdelad i återanvändbara komponenter för:
+                </p>
+                <ul>
+                    <li><strong>Profil</strong> – kort om mig, vad jag gillar att jobba med.</li>
+                    <li><strong>Projekt</strong> – korta sammanfattningar av det jag bygger.</li>
+                    <li><strong>Blogg</strong> – LIA-veckor och andra inlägg.</li>
+                    <li><strong>Utbildning</strong> – bakgrund, studier och teknikstack.</li>
+                </ul>
+                <p>
+                    Allt är stilat med Bootstrap + egen CSS, med fokus på att vara lättläst både på
+                    mobil och desktop.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Hosting som Azure Static Web App</h2>
+                <p>
+                    Portfoliosidan hostas som en <strong>Azure Static Web App</strong>. Det innebär att
+                    Blazor-builden publiceras som statiska filer, vilket ger:
+                </p>
+                <ul>
+                    <li>snabb laddning och enkel drift</li>
+                    <li>inbyggd koppling mot GitHub för automatiska deploys</li>
+                    <li>enkel setup utan att behöva hantera egna servrar</li>
+                </ul>
+                <p>
+                    För mig är det också ett sätt att bli mer bekväm med Azure och hur man publicerar
+                    moderna webbappar i molnet.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Förberedd för Azure Functions och databas</h2>
+                <p>
+                    Just nu är mycket av innehållet (projekt, blogginlägg, listor) definierat direkt i koden.
+                    Men strukturen är planerad för att kunna växa med ett backend-API.
+                </p>
+                <p>
+                    Tanken är att använda <strong>Azure Functions</strong> som ett lättviktigt API-lager som
+                    kan prata med en databas. Då kan jag:
+                </p>
+                <ul>
+                    <li>lagra projekt, blogginlägg och metadata i en databas</li>
+                    <li>bygga ett enkelt admin-gränssnitt för att uppdatera innehåll</li>
+                    <li>göra sidan mer dynamisk utan att ändra koden för varje liten uppdatering</li>
+                </ul>
+                <p>
+                    Det gör att den här ganska enkla portfolion också blir en bra testmiljö för serverless,
+                    databaser och autentisering i Azure.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Portfoliosidan som nav för mina projekt</h2>
+                <p>
+                    En viktig del med den här sidan är att den fungerar som ett nav. I stället för att
+                    sprida information om projekt på olika ställen kan jag:
+                </p>
+                <ul>
+                    <li>visa en kort översikt av varje projekt på startsidan</li>
+                    <li>länka vidare till en mer detaljerad beskrivning per projekt</li>
+                    <li>knyta ihop projekt med LIA-bloggen där jag beskriver hur jag byggt saker</li>
+                </ul>
+                <p>
+                    Allt hänger ihop: projekten, blogginläggen och min resa som utvecklare.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Varför Blazor, .NET och Azure?</h2>
+                <p>
+                    Jag vill jobba med .NET, backend och molnlösningar. Därför kändes det naturligt att
+                    min egen portfolio skulle använda samma teknikstack. Genom att bygga allt själv från
+                    frontend i Blazor till deployment i Azure.
+                </p>
+                <p>
+                    Portfoliosidan blir på så sätt ett konkret exempel på hur jag tänker kring arkitektur,
+                    struktur och verktyg.
+                </p>
+            </section>
+
+            <aside class="summary-box p-4 mt-4">
+                <h3 class="h5 fw-bold mb-3">Sammanfattning av portfoliosidan</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-3">
+                        <strong>Blazor WebAssembly</strong><br />
+                        Frontend byggd som SPA i C#.<br />
+                        <span class="why">— </span> Samma språk för UI-logik som för backend.
+                    </li>
+                    <li class="mb-3">
+                        <strong>.NET</strong><br />
+                        Basen för struktur, komponenter och framtida API.<br />
+                        <span class="why">— </span> Stabil plattform jag vill jobba vidare med.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Azure Static Web Apps</strong><br />
+                        Hostar själva portfoliosidan.<br />
+                        <span class="why">— </span> Enkel, snabbt och gratis.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Azure Functions (planerad)</strong><br />
+                        Kommande API-lager mot databas.<br />
+                        <span class="why">— </span> Bra sätt att testa serverless och dataflöden.
+                    </li>
+                    <li>
+                        <strong>Portfolion som nav</strong><br />
+                        Samlar projekt, blogg och lärande.<br />
+                        <span class="why">— </span> En plats där jag kan följa min egen utveckling över tid.
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+</article>
