@@ -186,3 +186,12 @@
     color: var(--text, #e5e7eb);
     font-weight: 600;
 }
+
+.flag-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    object-fit: cover;
+    margin-right: .45rem;
+    vertical-align: middle;
+}
