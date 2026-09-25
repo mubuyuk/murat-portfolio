@@ -1,6 +1,4 @@
-﻿@inject NavigationManager Nav
-
-<section class="projects-section">
+﻿<section class="projects-section">
     <div class="projects-container">
 
         <div class="projects-header">
@@ -103,11 +101,5 @@
                 return projects.Take(Max.Value);
             return projects;
         }
-    }
-
-    private void GoToDetail(ProjectItem p)
-    {
-        if (!string.IsNullOrWhiteSpace(p.Slug))
-            Nav.NavigateTo($"/projects/{p.Slug}");
     }
 }
