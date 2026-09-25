@@ -1,0 +1,160 @@
+@page "/projects/homelab"
+<PageTitle>Homelab / Raspberry Pi – Projekt</PageTitle>
+
+<article class="blog-article container py-5">
+    <div class="article-wrap mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Hem</a></li>
+                <li class="breadcrumb-item"><a href="/projects">Projekt</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Homelab / Raspberry Pi
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="article-head">
+            <h1 class="post-title">Homelab / Raspberry Pi</h1>
+            <p class="post-subtitle">
+                Ett eget homelab byggt kring en Raspberry Pi med Debian Linux och Docker. Jag använder miljön
+                både för att köra tjänster hemma och för att praktiskt lära mig mer om Linux, containers,
+                nätverk, DNS, reverse proxy och drift.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge text-bg-dark">Linux</span>
+                <span class="badge text-bg-dark">Docker</span>
+                <span class="badge text-bg-dark">Docker Compose</span>
+                <span class="badge text-bg-dark">Networking</span>
+                <span class="badge text-bg-dark">DNS</span>
+            </div>
+        </header>
+
+        <!-- Innehåll -->
+        <div class="article-body">
+
+            <section class="mb-4">
+                <h2>Bakgrund</h2>
+                <p>
+                    Jag började bygga mitt homelab för att få en egen miljö där jag kunde testa och lära mig
+                    saker praktiskt, istället för att bara läsa om dem eller använda färdiga molntjänster.
+                </p>
+                <p>
+                    Det började ganska enkelt men har med tiden vuxit till en server med flera olika tjänster.
+                    I takt med det har jag behövt sätta mig in mer i hur containrar kommunicerar, hur DNS
+                    fungerar, hur tjänster exponeras i nätverket och hur man felsöker när något inte fungerar.
+                </p>
+                <p>
+                    För mig har homelabbet därför blivit både en server jag faktiskt använder hemma och en
+                    miljö där jag kan experimentera och bygga vidare allt eftersom jag lär mig mer.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Teknisk miljö</h2>
+                <p>
+                    Servern är en Raspberry Pi med Debian Linux. De flesta tjänster körs som Docker-containers
+                    och hanteras med Docker Compose.
+                </p>
+                <p>
+                    I miljön kör jag bland annat Home Assistant, Pi-hole, Nginx Proxy Manager, Nextcloud,
+                    Immich, Uptime Kuma, Portainer och Homepage.
+                </p>
+                <p>
+                    En stor del av projektet har inte bara varit att få tjänsterna att starta, utan att förstå
+                    hur de ska kommunicera med varandra, hur de ska nås från det lokala nätverket och hur
+                    miljön ska kunna underhållas och felsökas.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Nätverk, DNS &amp; reverse proxy</h2>
+                <p>
+                    Pi-hole används som DNS-server i det lokala nätverket. Det gör att jag kan använda interna
+                    domännamn för mina tjänster istället för att behöva komma ihåg IP-adresser och portar.
+                </p>
+                <p>
+                    Flera Docker-tjänster ligger på ett gemensamt Docker-nätverk och nås genom Nginx Proxy
+                    Manager. Reverse proxyn tar emot trafiken och skickar den vidare till rätt container och
+                    port.
+                </p>
+                <p>
+                    Alla tjänster fungerar däremot inte på exakt samma sätt. Home Assistant kör exempelvis med
+                    <code>host networking</code>, vilket ger tjänsten direkt åtkomst till värdens nätverk
+                    istället för att använda ett separat Docker-nätverk.
+                </p>
+                <p>
+                    Att bygga upp detta har hjälpt mig att få en bättre praktisk förståelse för skillnaden
+                    mellan Docker-nätverk och värdens nätverk, DNS och hur trafik faktiskt tar sig från en
+                    klient till rätt tjänst.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Drift, övervakning &amp; felsökning</h2>
+                <p>
+                    Jag underhåller miljön löpande genom att uppdatera Debian och Docker-images, kontrollera
+                    containrar och loggar och felsöka problem som uppstår.
+                </p>
+                <p>
+                    Jag har också gått från att använda generella image-taggar som <code>latest</code> till att
+                    använda specifika versioner där det är lämpligt. Det ger bättre kontroll över vilka
+                    versioner som faktiskt körs och när de uppdateras.
+                </p>
+                <p>
+                    Uptime Kuma används för enkel övervakning av tjänsterna och för att snabbt kunna se om
+                    någon av dem inte längre är tillgänglig.
+                </p>
+                <p>
+                    Felsökningen är en del av projektet som jag tycker har varit särskilt lärorik. Ett problem
+                    kan exempelvis ligga i DNS, Docker-nätverket, reverse proxyn, containerkonfigurationen
+                    eller i själva applikationen. Det gör att jag behöver felsöka steg för steg och försöka
+                    förstå var i flödet problemet faktiskt uppstår.
+                </p>
+            </section>
+
+            <section class="mb-4">
+                <h2>Vad jag har lärt mig</h2>
+                <p>
+                    Homelabbet har framför allt gett mig en mer praktisk förståelse för hur Linux, Docker, DNS,
+                    nätverk, reverse proxy och olika applikationer hänger ihop.
+                </p>
+                <p>
+                    Det har också gjort att jag blivit mer van vid att arbeta direkt i Linux, läsa loggar,
+                    kontrollera containrar, testa nätverkskommunikation och försöka hitta grundorsaken när
+                    något inte fungerar.
+                </p>
+                <p>
+                    Homelabbet är ett pågående projekt som jag bygger vidare på i takt med att jag testar nya
+                    tekniker och lär mig mer om drift och infrastruktur.
+                </p>
+            </section>
+
+            <aside class="summary-box p-4 mt-4">
+                <h3 class="h5 fw-bold mb-3">Sammanfattning</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-3">
+                        <strong>Miljö</strong><br />
+                        Raspberry Pi / Debian Linux
+                    </li>
+                    <li class="mb-3">
+                        <strong>Containers</strong><br />
+                        Docker / Docker Compose
+                    </li>
+                    <li class="mb-3">
+                        <strong>Nätverk</strong><br />
+                        DNS / Docker networks / Reverse proxy
+                    </li>
+                    <li>
+                        <strong>Drift</strong><br />
+                        Uptime Kuma / loggar / uppdateringar / versionshantering
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+</article>
