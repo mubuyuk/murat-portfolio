@@ -51,6 +51,10 @@ h1, h2, h3, .post-title {
 
 
 /* ===== Base ===== */
+html {
+    scrollbar-gutter: stable;
+}
+
 html, body {
     margin: 0;
     padding: 0;

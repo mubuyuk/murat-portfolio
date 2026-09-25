@@ -12,7 +12,7 @@
 }
 
 .overline {
-    display: inline-block;
+    display: block;
     font-weight: 700;
     font-size: .8rem;
     letter-spacing: .08em;
