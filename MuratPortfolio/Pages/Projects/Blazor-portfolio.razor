@@ -35,8 +35,9 @@
             <div class="d-flex flex-wrap gap-2 mt-2">
                 <span class="badge text-bg-dark">Blazor WebAssembly</span>
                 <span class="badge text-bg-dark">C# / .NET</span>
+                <span class="badge text-bg-dark">Responsiv design</span>
                 <span class="badge text-bg-dark">Azure Static Web Apps</span>
-                <span class="badge text-bg-dark">Azure Functions (förberedd)</span>
+                <span class="badge text-bg-dark">GitHub Actions / CI-CD</span>
             </div>
         </header>
 
@@ -65,7 +66,7 @@
                 <p>
                     Sidan är byggd som en <strong>Single Page Application (SPA)</strong> i
                     <strong>Blazor WebAssembly</strong>. Allt UI och logik är skrivet i C#, vilket
-                    gör att jag kan jobba i samma språk som jag använder på backend-sidan.
+                    gör att jag kan jobba i samma språk, C#, som jag använder professionellt.
                 </p>
                 <p>
                     Layouten är uppdelad i återanvändbara komponenter för:
@@ -100,23 +101,16 @@
             </section>
 
             <section class="mb-4">
-                <h2>Förberedd för Azure Functions och databas</h2>
+                <h2>Automatiserad drift och deploy</h2>
                 <p>
-                    Just nu är mycket av innehållet (projekt, blogginlägg, listor) definierat direkt i koden.
-                    Men strukturen är planerad för att kunna växa med ett backend-API.
+                    Sidan byggs och driftsätts automatiskt via <strong>GitHub Actions</strong>. Varje push till
+                    huvudgrenen bygger om Blazor-appen och publicerar den till <strong>Azure Static Web
+                    Apps</strong>, och varje pull request får en egen preview-miljö som stängs automatiskt när
+                    PR:en stängs.
                 </p>
                 <p>
-                    Tanken är att använda <strong>Azure Functions</strong> som ett lättviktigt API-lager som
-                    kan prata med en databas. Då kan jag:
-                </p>
-                <ul>
-                    <li>lagra projekt, blogginlägg och metadata i en databas</li>
-                    <li>bygga ett enkelt admin-gränssnitt för att uppdatera innehåll</li>
-                    <li>göra sidan mer dynamisk utan att ändra koden för varje liten uppdatering</li>
-                </ul>
-                <p>
-                    Det gör att den här ganska enkla portfolion också blir en bra testmiljö för serverless,
-                    databaser och autentisering i Azure.
+                    Det ger mig en enkel men verklig CI/CD-pipeline att underhålla, utan egna servrar att sköta
+                    manuellt.
                 </p>
             </section>
 
@@ -159,8 +153,8 @@
                     </li>
                     <li class="mb-3">
                         <strong>.NET</strong><br />
-                        Basen för struktur, komponenter och framtida API.<br />
-                        <span class="why">— </span> Stabil plattform jag vill jobba vidare med.
+                        Basen för komponenter och struktur i frontend.<br />
+                        <span class="why">— </span> Samma språk och ekosystem som jag jobbar med professionellt.
                     </li>
                     <li class="mb-3">
                         <strong>Azure Static Web Apps</strong><br />
@@ -168,9 +162,9 @@
                         <span class="why">— </span> Enkel, snabbt och gratis.
                     </li>
                     <li class="mb-3">
-                        <strong>Azure Functions (planerad)</strong><br />
-                        Kommande API-lager mot databas.<br />
-                        <span class="why">— </span> Bra sätt att testa serverless och dataflöden.
+                        <strong>GitHub Actions</strong><br />
+                        Bygger och deployar sidan automatiskt vid varje push och pull request.<br />
+                        <span class="why">— </span> En enkel, verklig CI/CD-pipeline utan egna servrar.
                     </li>
                     <li>
                         <strong>Portfolion som nav</strong><br />

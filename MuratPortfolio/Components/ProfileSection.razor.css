@@ -8,6 +8,13 @@
     box-shadow: 0 0 0 3px var(--ring);
 }
 
+.profile-title {
+    font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+    font-weight: 800;
+    color: var(--text);
+    margin: 0;
+}
+
 .profile-subtitle {
     color: var(--muted);
     margin: 0;
