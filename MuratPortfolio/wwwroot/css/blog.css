@@ -1,24 +1,14 @@
 ﻿/* =========================================
-   FÄRG-TOKENS (dark bakgrund, ljus text)
-========================================= */
-:root {
-    --accent: #30e0b6; /* grön accent */
-    --text: #e5e7eb; /* primär brödtext */
-    --muted: #9ca3af; /* dämpad text */
-    --text-muted: var(--muted); /* alias för konsistens */
-
-    --card-bg: rgba(17,24,39,.85); /* mörk kort-bakgrund */
-    --card-border: rgba(148,163,184,.18);
-    --summary-bg: rgba(255, 255, 255, 0.06);
-    --code-bg: rgba(96,165,250,.12);
-    --code-text: #60a5fa;
-}
-
-/* =========================================
    ARTIKEL-LAYOUT & TYPOGRAFI
 ========================================= */
 
 .blog-article {
+    /* Artikelspecifika tokens (ärver --text/--muted/--accent globalt från app.css) */
+    --text-muted: var(--muted); /* alias för konsistens */
+    --summary-bg: rgba(255, 255, 255, 0.06);
+    --code-bg: rgba(96,165,250,.12);
+    --code-text: #60a5fa;
+
     color: var(--text);
 }
 
@@ -85,6 +75,11 @@
 
     .blog-article .breadcrumb {
         font-size: .9rem;
+    }
+
+    .blog-article .breadcrumb-item.active,
+    .blog-article .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--muted);
     }
 
     /* =========================================

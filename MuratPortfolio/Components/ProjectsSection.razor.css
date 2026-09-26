@@ -5,13 +5,6 @@
     margin-bottom: 1.5rem;
 }
 
-    .projects-header .overline {
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: #cbd5e1;
-    }
-
     .projects-header .view-all {
         text-decoration: none;
         font-weight: 500;
@@ -23,6 +16,10 @@
             transform: translateX(2px);
         }
 
+
+.projects-container {
+    padding: 0 1rem;
+}
 
 .projects-section {
     color: var(--text);
@@ -38,13 +35,6 @@
     text-transform: uppercase;
     color: var(--muted, #94a3b8);
     opacity: .9;
-}
-
-.section-heading {
-    font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
-    font-weight: 800;
-    color: var(--accent);
-    margin: 0 0 1rem 0;
 }
 
 .projects-list {
@@ -122,7 +112,6 @@
         display: block;
     }
 
-
 .project-title {
     font-size: clamp(1rem, .9rem + .5vw, 1.15rem);
     font-weight: 800;
@@ -158,14 +147,3 @@
         font-size: .9rem;
         line-height: 1;
     }
-
-
-.more-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-    margin-top: .4rem;
-    font-weight: 700;
-    color: var(--accent);
-    opacity: .9;
-}

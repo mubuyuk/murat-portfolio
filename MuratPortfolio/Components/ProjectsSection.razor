@@ -1,6 +1,4 @@
-﻿@inject NavigationManager Nav
-
-<section class="projects-section">
+﻿<section class="projects-section">
     <div class="projects-container">
 
         <div class="projects-header">
@@ -74,9 +72,17 @@
             GitHubUrl = "#"
         },
         new ProjectItem {
+            Title = "Homelab / Raspberry Pi",
+            Slug = "/projects/homelab",
+            Summary = "Linux-baserad homelabmiljö på Raspberry Pi där jag driver containeriserade tjänster och arbetar praktiskt med Docker, nätverk, DNS, reverse proxy och övervakning.",
+            Tech = new() { "Linux", "Docker", "Networking", "DNS", "Reverse Proxy" },
+            ImageUrl = "/images/project_homelab_placeholder.svg",
+            GitHubUrl = null
+        },
+        new ProjectItem {
             Title = "Blazor WebAssembly Portfolio",
             Slug = "/projects/blazor-portfolio",
-            Summary = "Portfoliosida där jag bygger upp min frontend i Blazor WebAssembly med C# och .NET. Projektet hostas i Azure och är förberett för att senare kunna kopplas mot Azure Functions och en databas.",
+            Summary = "Portfoliosida byggd med Blazor WebAssembly och .NET, med responsiv design och automatisk deployment till Azure Static Web Apps via GitHub Actions.",
             Tech = new() { "Blazor WebAssembly", "C#", ".NET", "Azure" },
             ImageUrl = "/images/project_portfolio_logo.png",
             GitHubUrl = "https://github.com/mubuyuk/portfolio-blazor"
@@ -103,11 +109,5 @@
                 return projects.Take(Max.Value);
             return projects;
         }
-    }
-
-    private void GoToDetail(ProjectItem p)
-    {
-        if (!string.IsNullOrWhiteSpace(p.Slug))
-            Nav.NavigateTo($"/projects/{p.Slug}");
     }
 }

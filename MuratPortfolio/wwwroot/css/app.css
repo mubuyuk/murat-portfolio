@@ -1,13 +1,15 @@
 /* ===== Design tokens ===== */
 :root {
-    --bg: #0f172a; /* mörk bakgrund (desktop default) */
-    --text: #ffffff; /* nästan vit text */
-    --muted: #ffffff; /* sekundär text */
-    --accent: #30e0b6; /* brand */
+    --bg: #0f172a;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #30e0b6;
     --ring: #30e0b6;
+    --panel: rgba(17, 24, 39, .85);
+    --border: rgba(148, 163, 184, .15);
 }
 
-/* Respektera OS-darkmode (behåller dina värden men låter browsern optimera) */
+/* Respektera OS-darkmode (behï¿½ller dina vï¿½rden men lï¿½ter browsern optimera) */
 :root {
     color-scheme: dark;
 }
@@ -17,12 +19,12 @@ h1, h2, h3, .post-title {
     color: var(--text);
 }
 
-/* Meta/datum – lite ljusare grå för läsbarhet (särskilt på mobil) */
+/* Meta/datum ï¿½ lite ljusare grï¿½ fï¿½r lï¿½sbarhet (sï¿½rskilt pï¿½ mobil) */
 .post-date, .xp-meta {
     color: #a8b3c9;
 }
 
-/* Globalt radavstånd (lite luftigare på mobil) */
+/* Globalt radavstï¿½nd (lite luftigare pï¿½ mobil) */
 @media (max-width: 768px) {
     body {
         line-height: 1.65;
@@ -31,12 +33,12 @@ h1, h2, h3, .post-title {
 
 .home-projects {
     display: flex;
-    flex-direction: column; /* barnen (komponenten + länken) staplas */
+    flex-direction: column; /* barnen (komponenten + lï¿½nken) staplas */
 }
 
     .home-projects .view-all {
-        align-self: flex-end; /* nu kan den hoppa till höger */
-        margin-top: 1.5rem; /* luft från projekten ovanför */
+        align-self: flex-end; /* nu kan den hoppa till hï¿½ger */
+        margin-top: 1.5rem; /* luft frï¿½n projekten ovanfï¿½r */
         text-decoration: none;
         font-weight: 500;
         color: var(--text);
@@ -49,6 +51,10 @@ h1, h2, h3, .post-title {
 
 
 /* ===== Base ===== */
+html {
+    scrollbar-gutter: stable;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -64,7 +70,7 @@ h1:focus {
     outline: none;
 }
 
-/* Länkar: neutral global default */
+/* Lï¿½nkar: neutral global default */
 a {
     color: var(--text);
     text-decoration: none;
@@ -87,7 +93,7 @@ a {
     padding-top: 1rem;
 }
 
-/* ===== Sektioner (återanvänds av sidor) ===== */
+/* ===== Sektioner (ï¿½teranvï¿½nds av sidor) ===== */
 .section {
     padding: 4rem 1rem;
     max-width: 1200px;
@@ -98,7 +104,7 @@ a {
         padding-top: 4rem;
     }
 
-    /* Men de efterföljande får mindre mellanrum */
+    /* Men de efterfï¿½ljande fï¿½r mindre mellanrum */
     .section + .section {
         padding-top: 2rem; /* mindre luft mellan sektionerna */
     }
