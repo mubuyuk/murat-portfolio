@@ -36,7 +36,9 @@
     flex-wrap: wrap;
     gap: .5rem 1rem;
     align-items: baseline;
-    font-size: .97rem;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.4;
 }
 
 .status {
@@ -71,7 +73,7 @@
 /* ---- Sektioner & rubriker ---- */
 .edu-section h2 {
     margin: 1.25rem 0 .5rem;
-    font-weight: 800;
+    font-weight: 700;
     font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem);
     letter-spacing: .2px;
     color: var(--text, #e5e7eb);
@@ -86,7 +88,7 @@
 .edu-section ul {
     margin: .25rem 0 1rem;
     padding-left: 1.25rem;
-    color: var(--muted, #94a3b8);
+    color: var(--text, #e5e7eb);
     line-height: 1.7;
 }
 
@@ -99,7 +101,7 @@
     padding: 1rem 1.25rem;
     border-radius: 14px;
     background: rgba(17,24,39,.65);
-    border: 1px solid rgba(148,163,184,.15);
+    border: 1px solid var(--border);
     margin: .75rem 0;
     transition: transform .08s ease, border-color .15s ease, background .15s ease;
 }
@@ -158,6 +160,8 @@
     gap: .6rem;
     margin-bottom: .4rem;
     font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.4;
     color: var(--muted, #94a3b8);
 }
 
@@ -168,14 +172,6 @@
     background: rgba(148,163,184,.6);
 }
 
-#it-gymnasiet .edu-place {
-    font-weight: 600;
-    color: var(--text, #e5e7eb);
-}
-
-#it-gymnasiet .edu-dates {
-    font-style: italic;
-}
 
 #it-gymnasiet p {
     margin: 0;
