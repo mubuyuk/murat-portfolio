@@ -6,7 +6,7 @@
     --accent: #30e0b6;
     --ring: #30e0b6;
     --panel: rgba(17, 24, 39, .85);
-    --border: rgba(148, 163, 184, .15);
+    --border: rgba(148, 163, 184, .22);
 }
 
 /* Respektera OS-darkmode (beh�ller dina v�rden men l�ter browsern optimera) */
@@ -17,11 +17,6 @@
 /* Rubriker och posttitlar alltid tydliga */
 h1, h2, h3, .post-title {
     color: var(--text);
-}
-
-/* Meta/datum � lite ljusare gr� f�r l�sbarhet (s�rskilt p� mobil) */
-.post-date, .xp-meta {
-    color: #a8b3c9;
 }
 
 /* Globalt radavst�nd (lite luftigare p� mobil) */

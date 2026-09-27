@@ -95,9 +95,9 @@
 
     #erfarenhet h2 {
         text-align: center;
-        font-weight: 800;
+        font-weight: 700;
         font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem);
-        color: #30e0b6;
+        color: var(--text, #e5e7eb);
         margin-bottom: 2rem;
     }
 
@@ -112,14 +112,27 @@
     .xp h3 {
         margin: 0 0 .35rem;
         font-size: 1.06rem;
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: .2px;
         color: var(--text, #e5e7eb);
     }
 
+        .xp h3 .sep {
+            color: var(--muted, #94a3b8);
+            font-weight: 400;
+            margin: 0 .15rem;
+        }
+
+        .xp h3 .xp-company {
+            font-weight: 500;
+            color: var(--text, #e5e7eb);
+        }
+
 .xp-meta {
     color: var(--muted, #94a3b8);
-    font-size: .95rem;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.4;
     margin-bottom: .65rem;
     display: flex;
     gap: .6rem;
@@ -131,7 +144,7 @@
     list-style: none;
     margin: .4rem 0 0;
     padding-left: 0;
-    color: var(--muted, #a6b0bf);
+    color: var(--text, #e5e7eb);
     line-height: 1.75;
 }
 

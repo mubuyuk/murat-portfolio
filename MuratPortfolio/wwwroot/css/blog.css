@@ -175,7 +175,7 @@
     font-size: clamp(1.2rem, 1rem + .6vw, 1.5rem);
     font-weight: 700;
     margin: 1.75rem 0 .75rem;
-    color: #f3f4f6; /* lite ljusare än body-text */
+    color: var(--text, #e5e7eb);
     letter-spacing: .3px;
     border-bottom: 1px solid rgba(255,255,255,.25);
     padding-bottom: .3rem;
@@ -185,7 +185,7 @@
 .blog-article h3 {
     font-size: clamp(1rem, .9rem + .4vw, 1.125rem);
     font-weight: 700;
-    color: #cbd5e1;
+    color: var(--text, #e5e7eb);
     margin-top: 1.25rem;
     margin-bottom: .25rem;
     letter-spacing: .2px;
