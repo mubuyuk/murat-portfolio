@@ -1,4 +1,4 @@
-﻿@page "/projects/software-factory"
+@page "/projects/software-factory"
 <PageTitle>Software Factory – LIA hos Bonfire Cloud & Engineering</PageTitle>
 
 <article class="blog-article container py-5">
@@ -26,137 +26,136 @@
         <!-- Header -->
         <header class="article-head">
             <h1 class="post-title">Software Factory – Bonfire Cloud & Engineering</h1>
+            <p class="post-subtitle mb-2">
+                Under min LIA på Bonfire Cloud &amp; Engineering arbetade jag med ett projekt där vi satte upp
+                en mindre Software Factory-miljö på en Ubuntu-server. Vi började med att installera k3s och
+                byggde sedan upp ett flöde för att kunna bygga och deploya applikationer till Kubernetes.
+            </p>
             <p class="post-subtitle">
-                Mitt LIA-projekt på Bonfire handlade om att bygga upp en komplett Software Factory –
-                en modern DevOps-plattform där allt från kod till drift automatiseras med open source-verktyg.
+                Vi använde bland annat GitLab, GitLab Runner och Argo CD för CI/CD och GitOps, tillsammans
+                med MetalLB och NGINX Ingress för nätverk och åtkomst till tjänsterna i klustret.
             </p>
 
             <div class="d-flex flex-wrap gap-2 mt-2">
                 <span class="badge text-bg-dark">Kubernetes (k3s)</span>
                 <span class="badge text-bg-dark">GitLab CI/CD</span>
                 <span class="badge text-bg-dark">Argo CD</span>
-                <span class="badge text-bg-dark">MetalLB</span>
-                <span class="badge text-bg-dark">NGINX Ingress</span>
+                <span class="badge text-bg-dark">GitOps</span>
+                <span class="badge text-bg-dark">Linux</span>
             </div>
         </header>
 
         <!-- Body -->
         <div class="article-body">
 
-            <!-- Intro -->
+            <!-- Vad jag arbetade med -->
             <section class="mb-4">
+                <h2>Vad jag arbetade med</h2>
                 <p>
-                    Projektet gjordes på <strong>Bonfire Cloud & Engineering</strong>, ett konsultbolag i Göteborg
-                    som arbetar med moln, systemarkitektur och DevOps.
-                    Vi var fyra studenter som arbetade tillsammans på kontoret, och mycket av tiden gick åt till att testa,
-                    felsöka och förstå hur de olika delarna i en Software Factory hänger ihop.
+                    En stor del av arbetet handlade om att sätta upp miljön och sedan felsöka de olika delarna
+                    när något inte fungerade.
                 </p>
+
+                <div class="row g-3 mt-1">
+                    <div class="col-md-6">
+                        <div class="summary-box h-100">
+                            <h3 class="h5 fw-bold mb-2">Kubernetes &amp; Linux</h3>
+                            <p class="mb-0">
+                                Vi installerade k3s på en Ubuntu-server där jag arbetade praktiskt med
+                                Kubernetes-manifests i YAML, <code>kubectl</code>, namespaces, deployments och
+                                services. Jag använde bland annat <code>kubectl</code> och loggar för att
+                                undersöka pods och felsöka varför något inte startade eller fungerade som tänkt.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="summary-box h-100">
+                            <h3 class="h5 fw-bold mb-2">GitLab &amp; CI/CD</h3>
+                            <p class="mb-0">
+                                Vi installerade GitLab och GitLab Runner i klustret och arbetade med
+                                CI/CD-pipelines där applikationer byggdes som container-images och lagrades i
+                                GitLab Container Registry inför deployment.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="summary-box h-100">
+                            <h3 class="h5 fw-bold mb-2">Argo CD &amp; GitOps</h3>
+                            <p>
+                                Jag arbetade med Argo CD för att koppla ihop konfigurationen i vårt
+                                GitOps-repo med det som kördes i Kubernetes-klustret. Vi använde även en
+                                App-of-Apps-struktur för att hantera flera delar av miljön via Argo CD.
+                            </p>
+                            <p class="mb-0">
+                                Här blev det mycket praktiskt arbete med att ändra konfiguration, synkronisera
+                                och felsöka när något inte fungerade som tänkt.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="summary-box h-100">
+                            <h3 class="h5 fw-bold mb-2">Nätverk &amp; åtkomst</h3>
+                            <p class="mb-0">
+                                Vi använde MetalLB och NGINX Ingress för att göra tjänster i
+                                Kubernetes-klustret tillgängliga från det lokala nätverket. Det gjorde att vi
+                                exempelvis kunde komma åt webbgränssnitten för GitLab och Argo CD från våra
+                                egna datorer trots att tjänsterna kördes i klustret.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="summary-box h-100">
+                            <h3 class="h5 fw-bold mb-2">Bash &amp; automation</h3>
+                            <p class="mb-0">
+                                Vi arbetade även med Bash-script för att automatisera delar av installationen
+                                och konfigurationen av plattformen. Scriptet användes bland annat för att sätta
+                                upp Argo CD och App-of-Apps samt automatisera konfiguration och kontroller av
+                                flera delar i miljön.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Från kod till deployment -->
+            <section class="mb-4">
+                <h2>Från kod till deployment</h2>
                 <p>
-                    Allt byggdes i ett eget <strong>k3s-Kubernetes-kluster</strong> där vi installerade verktyg,
-                    satte upp nätverk och deployade applikationer.
+                    När miljön var på plats fick vi ihop ett flöde där en kodändring kunde gå genom CI/CD och
+                    vidare till en körande applikation i Kubernetes.
+                </p>
+
+                <ol class="flow" aria-label="Applikationsflödet från kod till Kubernetes">
+                    <li><span>Kod</span></li>
+                    <li><span>GitLab CI</span></li>
+                    <li><span>Container Registry</span></li>
+                    <li><span>GitOps-repo</span></li>
+                    <li><span>Argo CD</span></li>
+                    <li><span>Kubernetes</span></li>
+                </ol>
+
+                <p>
+                    GitLab CI byggde container-imagen och lagrade den i registryt. Pipeline-flödet uppdaterade
+                    sedan konfigurationen i vårt GitOps-repo, som Argo CD övervakade och synkroniserade mot
+                    Kubernetes-klustret.
                 </p>
             </section>
 
-            <!-- Syfte -->
+            <!-- Vad jag tog med mig -->
             <section class="mb-4">
-                <h2>Syftet</h2>
+                <h2>Vad jag tog med mig</h2>
                 <p>
-                    Målet var inte att skapa en färdig produkt, utan att lära oss hur en modern DevOps-plattform
-                    kan byggas från grunden med <strong>Infrastructure as Code</strong> och
-                    <strong>GitOps</strong>.
+                    Det här var första gången jag arbetade praktiskt med flera av de här teknikerna
+                    tillsammans. Det gav mig framför allt en bättre förståelse för hur Linux, containers,
+                    Kubernetes, CI/CD, GitOps och nätverk hänger ihop när man faktiskt ska få en applikation
+                    att fungera.
                 </p>
                 <p>
-                    All infrastruktur och applikationer versionerades i Git,
-                    och <strong>Argo CD synkroniserade automatiskt alla ändringar</strong> till klustret.
-                    På så sätt fick vi se hur både drift och kod kan hanteras på samma sätt – spårbart, automatiserat och skalbart.
+                    En stor del av lärandet kom också från felsökningen. När något inte fungerade behövde vi
+                    gå igenom exempelvis pods, loggar, konfiguration, nätverk eller pipelines för att hitta
+                    var problemet låg.
                 </p>
             </section>
-
-            <!-- Vad jag gjorde -->
-            <section class="mb-4">
-                <h2>Vad jag gjorde</h2>
-                <p>
-                    Mitt fokus låg på att sätta upp själva plattformen och få kedjan att fungera från början till slut.
-                    Några av mina arbetsuppgifter:
-                </p>
-                <ul>
-                    <li>Installera och konfigurera <strong>k3s-klustret</strong></li>
-                    <li>Sätta upp <strong>MetalLB</strong> för externa IP-adresser</li>
-                    <li>Installera <strong>NGINX Ingress Controller</strong></li>
-                    <li>Installera <strong>Argo CD</strong> och konfigurera App-of-Apps</li>
-                    <li>Sätta upp <strong>GitLab + GitLab Runner</strong></li>
-                    <li>Skapa applikationer som kunde deployas automatiskt</li>
-                    <li>Skriva bash-skript för att automatisera hela installationen</li>
-                </ul>
-                <p>
-                    Jag började projektet med att följa instruktioner men avslutade med att förstå
-                    hur hela kedjan hänger ihop, från nätverk och containers, till pipelines och GitOps.
-                </p>
-            </section>
-
-            <!-- Resultat -->
-            <section class="mb-4">
-                <h2>Resultatet</h2>
-                <p>
-                    Vid slutet av perioden hade vi en helt fungerande pipeline som automatiskt byggde,
-                    pushade och deployade applikationer:
-                </p>
-
-                <p class="text-center fw-semibold">
-                    kod → GitLab → Buildah → GitLab Registry → Argo CD → Kubernetes
-                </p>
-
-                <p>
-                    Allt styrdes via Git och kunde återskapas när som helst. Det gav en tydlig bild av hur
-                    moderna utvecklingsteam arbetar, från commit till drift.
-                </p>
-            </section>
-
-            <!-- Reflektion -->
-            <section class="mb-4">
-                <h2>Reflektion</h2>
-                <p>
-                    Det här projektet har varit den mest lärorika delen av min utbildning.
-                    Jag lärde mig inte bara teknik, utan även samarbetet, felsökningen och metodiken som krävs
-                    för att bygga komplexa system.
-                </p>
-                <p>
-                    Allt detta väckte mitt intresse för rollen som <strong>Platform Engineer</strong>,
-                    en roll där infrastruktur, automation och utveckling möts.
-                </p>
-            </section>
-
-            <!-- Summary Box -->
-            <aside class="summary-box p-4 mt-4">
-                <h3 class="h5 fw-bold mb-3">Sammanfattning</h3>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-3">
-                        <strong>Kubernetes (k3s)</strong><br />
-                        Basen för hela plattformen.<br />
-                        <span class="why">— </span> Lättviktigt och perfekt för labbar.
-                    </li>
-                    <li class="mb-3">
-                        <strong>GitLab CI/CD</strong><br />
-                        Automatiserade builds och tester.<br />
-                        <span class="why">— </span> Enkelt att integrera med GitOps.
-                    </li>
-                    <li class="mb-3">
-                        <strong>Argo CD</strong><br />
-                        Synkar Git → Kubernetes.<br />
-                        <span class="why">— </span> Hela plattformens hjärta.
-                    </li>
-                    <li class="mb-3">
-                        <strong>MetalLB & Ingress</strong><br />
-                        Gör tjänster nåbara utifrån.<br />
-                        <span class="why">— </span> Nödvändigt för att se applikationer live.
-                    </li>
-                    <li>
-                        <strong>Pipelines till produktion</strong><br />
-                        kod → container → registry → kluster.<br />
-                        <span class="why">— </span> Modernt, automatiserat och spårbart.
-                    </li>
-                </ul>
-            </aside>
 
         </div>
 
