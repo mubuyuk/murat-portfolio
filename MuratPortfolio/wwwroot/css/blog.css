@@ -144,18 +144,6 @@
     }
 
 /* =========================================
-   BADGES / BOOTSTRAP OVERRIDES
-========================================= */
-
-.bg-secondary-subtle {
-    background-color: rgba(148,163,184,.18) !important;
-}
-
-.text-secondary-emphasis {
-    color: var(--text-muted) !important;
-}
-
-/* =========================================
    RUBRIKER I ARTIKELN
 ========================================= */
 
