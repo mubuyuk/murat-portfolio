@@ -64,20 +64,20 @@
     private List<ProjectItem> projects = new()
     {
         new ProjectItem {
-            Title = "Software Factory",
-            Slug = "/projects/software-factory",
-            Summary = "En DevOps-plattform byggd från grunden i Kubernetes med GitLab, Argo CD och automatiserade pipelines. Ett LIA-projekt där jag lärde mig hur modern utveckling och drift hänger ihop.",
-            Tech = new() { "Kubernetes (k3s)", "Argo CD", "GitOps", "GitLab CI/CD", "GitLab Runner" },
-            ImageUrl = "/images/project_bonfire_logo.png",
-            GitHubUrl = "#"
-        },
-        new ProjectItem {
             Title = "Homelab / Raspberry Pi",
             Slug = "/projects/homelab",
             Summary = "Linux-baserad homelabmiljö på Raspberry Pi där jag driver containeriserade tjänster och arbetar praktiskt med Docker, nätverk, DNS, reverse proxy och övervakning.",
             Tech = new() { "Linux", "Docker", "Networking", "DNS", "Reverse Proxy" },
             ImageUrl = "/images/project_homelab_placeholder.svg",
             GitHubUrl = null
+        },
+        new ProjectItem {
+            Title = "Software Factory",
+            Slug = "/projects/software-factory",
+            Summary = "LIA-projekt på Bonfire Cloud & Engineering där vi satte upp en mindre Software Factory-miljö i Kubernetes (k3s), med GitLab CI/CD och Argo CD/GitOps för att bygga och deploya applikationer.",
+            Tech = new() { "Kubernetes (k3s)", "Argo CD", "GitOps", "GitLab CI/CD", "GitLab Runner" },
+            ImageUrl = "/images/project_bonfire_logo.png",
+            GitHubUrl = "#"
         },
         new ProjectItem {
             Title = "Blazor WebAssembly Portfolio",

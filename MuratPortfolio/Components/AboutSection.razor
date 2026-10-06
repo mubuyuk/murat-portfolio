@@ -1,109 +1,180 @@
-﻿<section class="about">
+<section class="about">
     <div class="container">
-        <header class="page-head">
-            <span class="overline">Om mig</span>
-        </header>
 
-        <!-- Tvåkolumn: bild + text -->
-        <div class="about-grid">
+        <!-- Hero: bild + presentation -->
+        <header class="about-hero">
             <figure class="about-photo">
-                <img src="/images/murat_profile.jpg" alt="Murat Buyuksal" loading="lazy" decoding="async" />
+                <img src="/images/murat_profile.jpg" alt="Murat Buyuksal" width="220" height="220" decoding="async" />
             </figure>
 
             <div class="about-intro">
-                <p>
-                    Jag heter <strong>Murat Buyuksal</strong> och är utbildad <strong>.NET Cloud Developer</strong>
-                    med erfarenhet av systemutveckling, integrationer och teknisk felsökning. Efter mer än tio år
-                    inom transport och logistik bytte jag lastbilar mot kod – och har sedan dess gått från
-                    utbildning till praktisk DevOps och infrastruktur hos Bonfire Cloud &amp; Engineering, och
-                    vidare till systemutveckling och felsökning hos Centiro.
-                </p>
+                <span class="overline">Om mig</span>
+                <h1 class="about-name">Murat Buyuksal</h1>
+                <p class="about-tagline">.NET Cloud Developer med fokus på system, felsökning och drift</p>
 
                 <p>
-                    Min bakgrund inom utveckling har gett mig en bra grund för att förstå hur system hänger ihop
-                    och för att kunna följa problem genom kod, API:er, loggar och olika systemflöden.
+                    Jag är utbildad .NET Cloud Developer och har senast arbetat som systemutvecklare på Centiro.
+                    Där arbetade jag med utveckling, men också mycket med teknisk analys och felsökning av problem
+                    i system och integrationer.
                 </p>
-
                 <p>
-                    Mitt intresse har med tiden riktats allt mer mot system, drift, support och infrastruktur.
-                    Det är områden jag fortsätter att utvecklas inom, både genom min tidigare erfarenhet och
-                    praktiskt i min egen homelabmiljö där jag arbetar med bland annat Linux, Docker, nätverk och
-                    olika tjänster.
+                    Min bakgrund inom utveckling har gett mig en bra grund för att förstå hur applikationer och
+                    system hänger ihop och för att kunna följa problem genom exempelvis kod, API:er, loggar och
+                    systemflöden. Under min LIA på Bonfire Cloud &amp; Engineering fick jag även arbeta praktiskt
+                    med Linux, Kubernetes, CI/CD och GitOps.
                 </p>
-
                 <p>
-                    Framåt söker jag roller där jag får kombinera min tekniska bakgrund med felsökning,
-                    systemförståelse och praktiskt IT-arbete.
+                    Det jag vill fortsätta mot är en mer systemnära IT-roll där jag får kombinera min tekniska
+                    bakgrund med felsökning, systemförståelse, support och drift.
                 </p>
 
-                <blockquote class="about-quote">
-                    “Jag tycker om att förstå hur system hänger ihop – och att följa problem genom kod, loggar och
-                    systemflöden till grundorsaken.”
-                </blockquote>
-            </div>
-        </div>
-        <br>
-        <!-- Erfarenhet -->
-        <article class="about-section" id="erfarenhet">
-            <h2>Erfarenhet</h2>
-
-            <div class="xp">
-                <h3>Systemutvecklare <span class="sep">|</span> <span class="xp-company">Centiro Solutions AB</span></h3>
-                <p class="xp-meta">Borås · Jan 2026 – Aug 2026</p>
-                <p>
-                    LIA januari–maj 2026, följt av en visstidsanställning som systemutvecklare juni–augusti 2026.
-                </p>
-                <ul>
-                    <li>Felsökte tekniska problem som rapporterades av kunder via supportorganisationen.</li>
-                    <li>Analyserade systemflöden, integrationer, loggar och applikationslogik för att hitta grundorsaker.</li>
-                    <li>Testade och kvalitetssäkrade funktionalitet inför leverans.</li>
-                    <li>Dokumenterade lösningar och deltog i kundmöten om levererade tjänster.</li>
+                <ul class="about-links" aria-label="Länkar">
+                    <li>
+                        <a href="https://github.com/mubuyuk" target="_blank" rel="noopener">
+                            <i class="bi bi-github" aria-hidden="true"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/murat-buyuksal-1887a9302" target="_blank" rel="noopener">
+                            <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/files/Murat-Buyuksal-cv.pdf" target="_blank" rel="noopener">
+                            <img src="/images/icons/flags/sweden.svg" alt="" class="flag-icon" /> CV
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/files/Murat-Buyuksal-english-cv.pdf" target="_blank" rel="noopener">
+                            <img src="/images/icons/flags/united-kingdom.svg" alt="" class="flag-icon" /> CV (English)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:muratbuyuksal@gmail.com">
+                            <i class="bi bi-envelope" aria-hidden="true"></i> E-post
+                        </a>
+                    </li>
                 </ul>
             </div>
+        </header>
 
-            <div class="xp">
-                <h3>LIA – DevOps &amp; Infra <span class="sep">|</span> <span class="xp-company">Bonfire Cloud &amp; Engineering</span></h3>
-                <p class="xp-meta">Göteborg · Sep 2025 – Nov 2025</p>
-                <ul>
-                    <li>Byggde och driftsatte en DevOps-plattform i Kubernetes (k3s) med GitLab och Argo CD/GitOps.</li>
-                    <li>Administrerade en Linux-server som en del av plattformen.</li>
-                    <li>Arbetade med containerbaserad drift och CI/CD-flöden.</li>
-                </ul>
+        <!-- Min väg till IT: tidslinje -->
+        <section class="about-block" aria-labelledby="vag-till-it">
+            <h2 id="vag-till-it">Min väg till IT</h2>
+
+            <ol class="timeline">
+                <li>
+                    <h3 class="tl-title">Teknisk support</h3>
+                    <p class="tl-meta"><span class="tl-org">Telia</span> <span class="tl-when">2011–2012</span></p>
+                    <p class="tl-text">
+                        Arbetade med kundservice och teknisk support där jag hjälpte kunder att felsöka problem
+                        med digitala tjänster.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="tl-title">Transport &amp; logistik</h3>
+                    <p class="tl-meta"><span class="tl-org">PostNord / THL</span> <span class="tl-when">2012–2024</span></p>
+                    <p class="tl-text">
+                        Flera års arbetslivserfarenhet inom transport och distribution, med bland annat planering,
+                        koordinering och introduktion av nya chaufförer.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="tl-title">.NET Cloud Developer</h3>
+                    <p class="tl-meta"><span class="tl-org">IT-Högskolan</span> <span class="tl-when">2024–2026</span></p>
+                    <p class="tl-text">
+                        YH-utbildning inom .NET-utveckling, molntjänster och DevOps med bland annat C#, .NET,
+                        Azure, Docker och CI/CD.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="tl-title">DevOps &amp; infrastruktur</h3>
+                    <p class="tl-meta"><span class="tl-org">Bonfire Cloud &amp; Engineering</span> <span class="tl-when">LIA 2025</span></p>
+                    <p class="tl-text">
+                        Praktiskt arbete med Linux, Kubernetes (k3s), GitLab CI/CD, Argo CD och GitOps i ett
+                        Software Factory-projekt.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="tl-title">Systemutveckling &amp; felsökning</h3>
+                    <p class="tl-meta"><span class="tl-org">Centiro</span> <span class="tl-when">2026 · LIA → visstidsanställning</span></p>
+                    <p class="tl-text">
+                        Arbetade med utveckling samt teknisk analys och felsökning av system och integrationer
+                        genom bland annat systemflöden, loggar och applikationslogik.
+                    </p>
+                </li>
+                <li class="tl-next">
+                    <h3 class="tl-title">Nästa steg</h3>
+                    <ul class="tl-pills" aria-label="Områden">
+                        <li>Applikationssupport</li>
+                        <li>Systemförvaltning</li>
+                        <li>IT-drift</li>
+                        <li>Cloud Administrator</li>
+                        <li>Integrationer</li>
+                    </ul>
+                    <p class="tl-text">
+                        Roller där jag får kombinera teknisk felsökning, systemförståelse och praktiskt IT-arbete.
+                    </p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Vad jag tar med mig: tre områden -->
+        <section class="about-block" aria-labelledby="tar-med-mig">
+            <h2 id="tar-med-mig">Vad jag tar med mig</h2>
+
+            <div class="strengths">
+                <article class="strength">
+                    <h3>Felsökning &amp; systemförståelse</h3>
+                    <p>
+                        Jag har erfarenhet av att sätta mig in i tekniska problem och följa dem genom olika delar
+                        av ett system. På Centiro arbetade jag bland annat med systemflöden, integrationer, loggar
+                        och applikationslogik för att förstå var problem uppstod.
+                    </p>
+                </article>
+                <article class="strength">
+                    <h3>Teknisk grund</h3>
+                    <p>
+                        Utbildningen inom .NET och erfarenheten från Centiro har gett mig en utvecklarbakgrund,
+                        samtidigt som min LIA gav mig praktisk erfarenhet av Linux, Kubernetes, CI/CD och GitOps.
+                        Det gör att jag kan förstå både applikationen och delar av miljön runt omkring den.
+                    </p>
+                </article>
+                <article class="strength">
+                    <h3>Support &amp; verksamhet</h3>
+                    <p>
+                        Jag har tidigare arbetat direkt med teknisk kundsupport på Telia och är van vid att hjälpa
+                        användare och förstå problem från deras perspektiv. Min bakgrund inom transport och
+                        logistik har också gett mig lång erfarenhet av ansvar, planering och att arbeta i
+                        verksamheter där saker behöver fungera i praktiken.
+                    </p>
+                </article>
             </div>
+        </section>
 
-            <div class="xp">
-                <h3>Lastbilschaufför <span class="sep">|</span> <span class="xp-company">THL Transportservice AB</span></h3>
-                <p class="xp-meta">Göteborg · Aug 2016 – Aug 2024</p>
+        <!-- Praktiskt lärande: homelab -->
+        <section class="about-block homelab-feature" aria-labelledby="praktiskt-larande">
+            <div class="homelab-text">
+                <h2 id="praktiskt-larande">Praktiskt lärande utanför arbetet</h2>
+                <p class="homelab-sub">Mitt homelab</p>
                 <p>
-                    Planerade och koordinerade dagliga transporter med fokus på struktur, ansvar och
-                    tidsprecision – en bakgrund som lade grunden för karriärbytet mot IT.
+                    Jag fortsätter att bygga praktisk erfarenhet genom mitt eget homelab, där jag driver flera
+                    tjänster på en Raspberry Pi med Debian Linux och Docker.
                 </p>
+                <p>
+                    Miljön använder jag för att arbeta praktiskt med bland annat Linux, Docker, Docker Compose,
+                    nätverk, DNS, reverse proxy och övervakning. Det ger mig en egen miljö där jag kan testa,
+                    konfigurera, felsöka och förstå hur olika tjänster fungerar tillsammans.
+                </p>
+                <a class="homelab-cta" href="/projects/homelab">
+                    Se Homelab-projektet <span aria-hidden="true">→</span>
+                </a>
             </div>
 
-            <div class="xp">
-                <h3>Kundtjänstmedarbetare / teknisk support <span class="sep">|</span> <span class="xp-company">TeliaSonera AB</span></h3>
-                <p class="xp-meta">Göteborg · Nov 2011 – Jul 2012</p>
-                <ul>
-                    <li>Gav teknisk support och felsökning kring digitala tjänster.</li>
-                    <li>Kombinerade användarkontakt, problemlösning och service i samtal med kunder.</li>
-                </ul>
-            </div>
-        </article>
-
-        <!-- CV-länk -->
-        <p class="cv-row">
-            <a href="/files/Murat-Buyuksal-cv.pdf" target="_blank" rel="noopener" class="btn-outline">
-                <img src="/images/icons/flags/sweden.svg" alt="Svenska" class="flag-icon" />
-                Öppna CV som PDF
-            </a>
-        </p>
-
-        <p class="cv-row">
-            <a href="/files/Murat-Buyuksal-english-cv.pdf" target="_blank" rel="noopener" class="btn-outline">
-                <img src="/images/icons/flags/united-kingdom.svg" alt="English" class="flag-icon" />
-                Open CV as PDF
-            </a>
-        </p>
+            <figure class="homelab-media">
+                <img src="/images/project_homelab_placeholder.svg" alt="" loading="lazy" decoding="async" />
+            </figure>
+        </section>
 
     </div>
 </section>
