@@ -1,45 +1,72 @@
-﻿
-/* Maxbredd + sidmarginaler för innehållet */
-.education-article .container {
+﻿.education .container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1rem 2rem;
+    text-align: left;
 }
 
-/* ---- Sidhuvud (ingen hero) ---- */
-.page-head {
-    margin-bottom: 1rem;
-}
+/* ===== Sidhuvud ===== */
 
 .overline {
     display: block;
+    margin: 0;
     font-weight: 700;
     font-size: .8rem;
+    line-height: 1.5;
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--muted, #94a3b8);
     opacity: .9;
 }
 
-.page-head h1 {
-    margin: .25rem 0 .35rem;
+/* Nästa utbildning: avskild från den föregående med linje och luft */
+.edu-head-next {
+    margin-top: 3.5rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid var(--border, rgba(148,163,184,.22));
+}
+
+    .edu-head-next .edu-title {
+        margin-top: 0;
+    }
+
+.edu-title {
+    margin: .25rem 0 .6rem;
     font-weight: 800;
-    font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2rem);
+    font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
     line-height: 1.2;
     color: var(--text, #e5e7eb);
 }
 
-.meta {
-    margin: 0;
-    color: var(--muted, #94a3b8);
+/* Metarad: punkterna ritas före varje led och klipps bort i radens början,
+   så en bruten rad aldrig inleds med en lös punkt */
+.edu-meta {
+    --meta-gap: 1.25rem;
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem 1rem;
-    align-items: baseline;
+    align-items: center;
+    row-gap: .4rem;
+    list-style: none;
+    margin: 0 0 0 calc(var(--meta-gap) * -1);
+    padding: 0;
+    clip-path: inset(0 0 0 var(--meta-gap));
+    color: var(--muted, #94a3b8);
     font-size: .9rem;
-    font-weight: 400;
     line-height: 1.4;
 }
+
+    .edu-meta li {
+        position: relative;
+        padding-left: var(--meta-gap);
+    }
+
+        .edu-meta li::before {
+            content: "·";
+            position: absolute;
+            left: calc(var(--meta-gap) / 2 - .15rem);
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
 .status {
     display: inline-block;
@@ -51,130 +78,171 @@
     font-weight: 600;
 }
 
+.status-ongoing {
+    border-color: var(--accent, #30e0b6);
+    background: rgba(48,224,182,.10);
+    color: var(--accent, #30e0b6);
+}
+
 .ext {
     text-decoration: none;
-    color: var(--accent, #2dd4bf);
-    border-bottom: 2px solid rgba(45,212,191,.35);
-    padding-bottom: .05rem;
+    color: var(--accent, #30e0b6);
+    font-weight: 600;
 }
 
     .ext:hover {
-        color: var(--text, #e5e7eb);
-        border-color: rgba(148,163,184,.5);
+        text-decoration: underline;
     }
 
-/* ---- Layout för innehållet ---- */
-.edu-content {
+.edu-intro {
+    margin: 1.25rem 0 0;
+    max-width: 68ch;
+    color: var(--text, #e5e7eb);
+    line-height: 1.75;
+}
+
+/* ===== Gemensamt för sektionerna under sidhuvudet ===== */
+
+.edu-block {
+    margin-top: 4.5rem;
+}
+
+    .edu-block h3 {
+        margin: 0 0 .75rem;
+        font-weight: 700;
+        font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem);
+        letter-spacing: .2px;
+        color: var(--text, #e5e7eb);
+    }
+
+.edu-lead {
+    margin: 0 0 1.75rem;
+    max-width: 68ch;
+    color: var(--muted, #94a3b8);
+    line-height: 1.7;
+}
+
+/* ===== Utbildningens innehåll: område till vänster, tekniker till höger ===== */
+
+.edu-areas {
+    margin: 0;
+    border-bottom: 1px solid var(--border, rgba(148,163,184,.22));
+}
+
+.edu-area {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+    grid-template-columns: 210px 1fr;
+    column-gap: 2rem;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border, rgba(148,163,184,.22));
 }
 
-/* ---- Sektioner & rubriker ---- */
-.edu-section h2 {
-    margin: 1.25rem 0 .5rem;
-    font-weight: 700;
-    font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem);
-    letter-spacing: .2px;
-    color: var(--text, #e5e7eb);
+    .edu-area dt {
+        font-size: .85rem;
+        font-weight: 700;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        line-height: 1.5;
+        color: var(--text, #e5e7eb);
+    }
+
+    .edu-area dd {
+        margin: 0;
+    }
+
+.edu-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem .5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.edu-section p {
-    margin: .5rem 0 .85rem;
-    color: var(--text, #e5e7eb);
-    line-height: 1.7;
+    .edu-pills li {
+        padding: .3rem .6rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148,163,184,.22);
+        background: rgba(148,163,184,.10);
+        color: var(--text, #e5e7eb);
+        font-size: .9rem;
+        line-height: 1;
+    }
+
+/* Pills direkt under en utbildnings introduktion */
+.edu-head-pills {
+    margin-top: 1rem;
 }
 
-.edu-section ul {
-    margin: .25rem 0 1rem;
-    padding-left: 1.25rem;
-    color: var(--text, #e5e7eb);
-    line-height: 1.7;
+/* ===== LIA: två kompakta kort ===== */
+
+.lia-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 }
 
-.edu-section li {
-    margin: .25rem 0;
-}
-
-/* ---- Tekniker & Verktyg: kort ---- */
-.tech-group {
-    padding: 1rem 1.25rem;
+.lia {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
     border-radius: 14px;
     background: rgba(17,24,39,.65);
-    border: 1px solid var(--border);
-    margin: .75rem 0;
-    transition: transform .08s ease, border-color .15s ease, background .15s ease;
+    border: 1px solid var(--border, rgba(148,163,184,.22));
 }
 
-    .tech-group:hover {
-        transform: translateY(-1px);
-        border-color: rgba(148,163,184,.22);
-        background: rgba(17,24,39,.72);
-    }
-
-    .tech-group h4 {
-        margin: 0 0 .4rem;
-        font-size: 1rem;
-        font-weight: 800;
+    .lia h4 {
+        margin: 0 0 .2rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.4;
         color: var(--text, #e5e7eb);
-        letter-spacing: .2px;
     }
 
-    .tech-group p {
+    .lia p {
         margin: 0;
         color: var(--muted, #94a3b8);
-        line-height: 1.6;
+        line-height: 1.65;
         font-size: .95rem;
     }
 
-/* ---- Grid för tech-korten på större skärmar ---- */
-@media (min-width: 768px) {
-    #tech {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+    .lia .lia-meta {
+        margin-bottom: .75rem;
+        font-weight: 700;
+        font-size: .8rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--accent, #30e0b6);
     }
 
-        #tech > h2 {
-            grid-column: 1 / -1;
-        }
+.lia-link {
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 1rem;
+    text-decoration: none;
+    color: var(--accent, #30e0b6);
+    font-size: .95rem;
+    font-weight: 600;
 }
 
-/* ---- Avdelare ---- */
-.rule {
-    height: 1px;
-    background: rgba(148,163,184,.14);
-    margin: 1rem 0;
-}
+    .lia-link:hover {
+        text-decoration: underline;
+    }
 
-#it-gymnasiet h2 {
-    margin: 0 0 .4rem;
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--text, #e5e7eb);
-}
+/* ===== Responsivt ===== */
 
-#it-gymnasiet .edu-meta {
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-    margin-bottom: .4rem;
-    font-size: .9rem;
-    font-weight: 400;
-    line-height: 1.4;
-    color: var(--muted, #94a3b8);
-}
+@media (max-width: 768px) {
+    .edu-block {
+        margin-top: 3.5rem;
+    }
 
-#it-gymnasiet .dot {
-    width: .35rem;
-    height: .35rem;
-    border-radius: 50%;
-    background: rgba(148,163,184,.6);
-}
+    .edu-area {
+        grid-template-columns: 1fr;
+        row-gap: .6rem;
+    }
 
-
-#it-gymnasiet p {
-    margin: 0;
-    color: var(--muted, #94a3b8);
-    line-height: 1.6;
+    .lia-list {
+        grid-template-columns: 1fr;
+    }
 }
