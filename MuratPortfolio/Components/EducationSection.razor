@@ -1,101 +1,149 @@
-﻿<section class="education-article">
+﻿<section class="education">
     <div class="container">
 
-        <!-- Huvudutbildning -->
-        <header class="page-head">
-            <span class="overline">Utbildning</span>
-            <h1>.NET Cloud Developer – IT-Högskolan</h1>
-            <p class="meta">
-                Göteborg · Aug 2024 – Jun 2026 · <span class="status">Yrkeshögskoleexamen</span> · 400 YH-poäng
-                · <a class="ext" href="https://www.iths.se/utbildningar/net-cloud-developer/" target="_blank" rel="noopener">
-                    Läs om utbildningen ↗
-                </a>
+        <h1 class="overline">Utbildning</h1>
+
+        <!-- Pågående kurs: fristående från huvudutbildningen nedan -->
+        <header class="edu-head">
+            <h2 class="edu-title">Molnutveckling med Azure – IT-Högskolan</h2>
+
+            <ul class="edu-meta" aria-label="Fakta om kursen">
+                <li>Göteborg</li>
+                <li>Sep 2026 – Dec 2026</li>
+                <li><span class="status status-ongoing">Pågående</span></li>
+                <li>30 YH-poäng</li>
+                <li>
+                    <a class="ext" href="https://www.iths.se/utbildningar/molnutveckling-med-azure/" target="_blank" rel="noopener">
+                        Läs om kursen ↗
+                    </a>
+                </li>
+            </ul>
+
+            <p class="edu-intro">
+                Pågående kort YH-kurs med fokus på Microsoft Azure och praktisk fördjupning inom
+                molntjänster. Kursen omfattar bland annat Azure-tjänster, virtuella maskiner, identitet och
+                säkerhet, serverless, AKS samt tjänstemodellerna PaaS, IaaS och SaaS.
+            </p>
+
+            <ul class="edu-pills edu-head-pills" aria-label="Innehåll i kursen">
+                <li>Azure Virtual Machines</li>
+                <li>Microsoft Entra ID</li>
+                <li>Azure Functions</li>
+                <li>Azure Kubernetes Service (AKS)</li>
+                <li>Azure Security</li>
+            </ul>
+        </header>
+
+        <!-- Huvudutbildning: sidhuvud + kort introduktion -->
+        <header class="edu-head edu-head-next">
+            <h2 class="edu-title">.NET Cloud Developer – IT-Högskolan</h2>
+
+            <ul class="edu-meta" aria-label="Fakta om utbildningen">
+                <li>Göteborg</li>
+                <li>Aug 2024 – Jun 2026</li>
+                <li><span class="status">Yrkeshögskoleexamen</span></li>
+                <li>400 YH-poäng</li>
+                <li>
+                    <a class="ext" href="https://www.iths.se/utbildningar/net-cloud-developer/" target="_blank" rel="noopener">
+                        Läs om utbildningen ↗
+                    </a>
+                </li>
+            </ul>
+
+            <p class="edu-intro">
+                Under utbildningen byggde jag en bred teknisk grund inom .NET-utveckling, molntjänster och
+                DevOps. Jag arbetade praktiskt med bland annat C#, API:er, databaser, Azure, Docker, Git och
+                CI/CD, både i kursprojekt och under utbildningens LIA-perioder.
             </p>
         </header>
 
-        <div class="edu-content">
+        <!-- Utbildningens innehåll: fyra områden -->
+        <section class="edu-block" aria-labelledby="utbildningens-innehall">
+            <h3 id="utbildningens-innehall">Utbildningens innehåll</h3>
+            <p class="edu-lead">
+                Det här är de områden och tekniker jag arbetade med under utbildningen.
+            </p>
 
-            <!-- Översikt -->
-            <article class="edu-section" id="oversikt">
-                <h2>Översikt</h2>
-                <p>
-                    Utbildningen handlar om att bli utvecklare i molnet med fokus på <strong>Microsoft Azure</strong>
-                    och <strong>C#</strong>. Målet är att kunna bygga, drifta och automatisera moderna applikationer
-                    direkt i molnet.
-                </p>
-
-                <p>
-                    Arbetssättet är praktiskt och man arbetar i team,
-                    jobbar versionsstyrt och bygger lösningar som är skalbara, säkra och automatiserade. Under
-                    utbildningen lär man sig allt från backendutveckling och API:er till databaser, DevOps, containerisering
-                    och datalagring i molnet.
-                </p>
-
-                <p>
-                    Man får en bred grund inom <strong>molnarkitektur</strong>, webbutveckling, databaser, CI/CD och
-                    Docker.
-                    Efter utbildningen ska man kunna designa, utveckla och administrera molnbaserade system i Azure –
-                    allt från en enklare webbapp till en komplett backendmiljö med API:er, databaslagring och automatiserad drift.
-                </p>
-            </article>
-
-
-            <!-- Centrala moment -->
-            <article class="edu-section" id="moment">
-                <h2>Centrala moment</h2>
-                <ul>
-                    <li>Objektorienterad programmering i C# och .NET-plattformen.</li>
-                    <li>Utveckling av molnbaserade applikationer i <strong>Microsoft Azure</strong>.</li>
-                    <li>Webbutveckling av webbappar med integration av molntjänster som API:er, databaser och serverless-funktioner.</li>
-                    <li>Automatisering (CI/CD) och molnarkitektur med databaser, Blob Storage och serverless-funktioner.</li>
-                    <li>Databashantering och <strong>API-utveckling</strong>.</li>
-                    <li>Versionshantering med Git och containerisering med Docker.</li>
-                </ul>
-            </article>
-
-            <!-- Tekniker & Verktyg -->
-            <article class="edu-section" id="tech">
-                <h2>Tekniker &amp; Verktyg</h2>
-
-                <div class="tech-group">
-                    <h4>Backend</h4>
-                    <p>C# – .NET – ASP.NET Core – Minimal APIs – Entity Framework Core</p>
+            <dl class="edu-areas">
+                <div class="edu-area">
+                    <dt>Utveckling</dt>
+                    <dd>
+                        <ul class="edu-pills">
+                            <li>C#</li>
+                            <li>.NET</li>
+                            <li>ASP.NET Core</li>
+                            <li>REST API</li>
+                            <li>Blazor</li>
+                        </ul>
+                    </dd>
                 </div>
-
-                <div class="tech-group">
-                    <h4>Frontend</h4>
-                    <p>Blazor – HTML – CSS – Bootstrap</p>
+                <div class="edu-area">
+                    <dt>Data &amp; integrationer</dt>
+                    <dd>
+                        <ul class="edu-pills">
+                            <li>SQL Server</li>
+                            <li>MongoDB</li>
+                            <li>Entity Framework Core</li>
+                            <li>JSON/API</li>
+                        </ul>
+                    </dd>
                 </div>
-
-                <div class="tech-group">
-                    <h4>Cloud &amp; DevOps</h4>
-                    <p>Azure (App Service, Functions, Storage) – Docker –  CI/CD – Cloud Architecture</p>
+                <div class="edu-area">
+                    <dt>Moln &amp; DevOps</dt>
+                    <dd>
+                        <ul class="edu-pills">
+                            <li>Azure</li>
+                            <li>Docker</li>
+                            <li>CI/CD</li>
+                            <li>Git</li>
+                        </ul>
+                    </dd>
                 </div>
-
-                <div class="tech-group">
-                    <h4>Data</h4>
-                    <p>SQL Server – MongoDB – API-integration</p>
+                <div class="edu-area">
+                    <dt>Azure-tjänster</dt>
+                    <dd>
+                        <ul class="edu-pills">
+                            <li>App Service</li>
+                            <li>Functions</li>
+                            <li>Storage</li>
+                        </ul>
+                    </dd>
                 </div>
+            </dl>
+        </section>
 
-                <div class="tech-group">
-                    <h4>Övrigt</h4>
-                    <p>Git &amp; GitHub – Visual Studio – VS Code – Postman</p>
-                </div>
-            </article>
+        <!-- LIA: praktik inom utbildningen, inte anställningar -->
+        <section class="edu-block" aria-labelledby="lia">
+            <h3 id="lia">LIA – lärande i arbete</h3>
+            <p class="edu-lead">
+                LIA är utbildningens praktikperioder ute på företag och ingår som en del av utbildningen.
+            </p>
 
-            <div class="rule"></div>
+            <div class="lia-list">
+                <article class="lia">
+                    <h4>Bonfire Cloud &amp; Engineering</h4>
+                    <p class="lia-meta">LIA · 2025</p>
+                    <p>
+                        Under LIA:n arbetade jag tillsammans med andra studenter med att sätta upp en mindre
+                        Software Factory-miljö på en Ubuntu-server, med bland annat Kubernetes (k3s),
+                        GitLab CI/CD, Argo CD/GitOps och containers.
+                    </p>
+                    <a class="lia-link" href="/projects/software-factory">
+                        Visa projektet <span aria-hidden="true">→</span>
+                    </a>
+                </article>
 
-            <!-- Andra utbildningen -->
-            <article class="edu-section" id="it-gymnasiet">
-                <h2>IT-gymnasiet</h2>
-                <div class="edu-meta">
-                    <span class="edu-place">Göteborg</span>
-                    <span class="dot"></span>
-                    <span class="edu-dates">Juni 2003 – Juni 2006</span>
-                </div>
-                <p>Specialutformat program med inriktning mot IT och elektronik.</p>
-            </article>
+                <article class="lia">
+                    <h4>Centiro</h4>
+                    <p class="lia-meta">LIA · 2026</p>
+                    <p>
+                        Under min andra LIA var jag på Centiro, där jag fick arbeta i en utvecklingsmiljö och
+                        sätta mig in i företagets system och arbetssätt. Efter LIA-perioden fortsatte jag på
+                        Centiro i en visstidsanställning som systemutvecklare.
+                    </p>
+                </article>
+            </div>
+        </section>
 
-        </div>
     </div>
 </section>
