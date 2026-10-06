@@ -18,142 +18,94 @@
         <!-- Header -->
         <header class="article-head">
             <h1 class="post-title">Homelab / Raspberry Pi</h1>
+            <p class="post-subtitle mb-2">
+                Jag driver ett eget homelab på en Raspberry Pi 5 med Debian Linux, där jag kör flera tjänster
+                med Docker och Docker Compose. Miljön använder jag både för tjänster hemma och för att praktiskt
+                arbeta med Linux, containers, nätverk, DNS och drift.
+            </p>
             <p class="post-subtitle">
-                Ett eget homelab byggt kring en Raspberry Pi med Debian Linux och Docker. Jag använder miljön
-                både för att köra tjänster hemma och för att praktiskt lära mig mer om Linux, containers,
-                nätverk, DNS, reverse proxy och drift.
+                Homelabbet har vuxit fram successivt och blivit en miljö där jag kan testa hur olika tjänster
+                konfigureras, kommunicerar med varandra och görs tillgängliga i det lokala nätverket.
             </p>
 
             <div class="d-flex flex-wrap gap-2 mt-2">
                 <span class="badge text-bg-dark">Linux</span>
                 <span class="badge text-bg-dark">Docker</span>
                 <span class="badge text-bg-dark">Docker Compose</span>
-                <span class="badge text-bg-dark">Networking</span>
                 <span class="badge text-bg-dark">DNS</span>
+                <span class="badge text-bg-dark">Reverse Proxy</span>
             </div>
         </header>
 
         <!-- Innehåll -->
         <div class="article-body">
 
+            <!-- Miljön -->
             <section class="mb-4">
-                <h2>Bakgrund</h2>
+                <h2>Miljön</h2>
                 <p>
-                    Jag började bygga mitt homelab för att få en egen miljö där jag kunde testa och lära mig
-                    saker praktiskt, istället för att bara läsa om dem eller använda färdiga molntjänster.
+                    Servern består av en Raspberry Pi 5 med Debian 13 och en Kingston XS1000 1 TB SSD för
+                    lagring. De flesta tjänster körs som Docker-containers och hanteras med Docker Compose.
                 </p>
-                <p>
-                    Det började ganska enkelt men har med tiden vuxit till en server med flera olika tjänster.
-                    I takt med det har jag behövt sätta mig in mer i hur containrar kommunicerar, hur DNS
-                    fungerar, hur tjänster exponeras i nätverket och hur man felsöker när något inte fungerar.
-                </p>
-                <p>
-                    För mig har homelabbet därför blivit både en server jag faktiskt använder hemma och en
-                    miljö där jag kan experimentera och bygga vidare allt eftersom jag lär mig mer.
-                </p>
+                <p>I miljön kör jag bland annat:</p>
+
+                <ul class="hl-services" aria-label="Tjänster i miljön">
+                    <li>Pi-hole</li>
+                    <li>Nginx Proxy Manager</li>
+                    <li>Nextcloud</li>
+                    <li>Immich</li>
+                    <li>Home Assistant</li>
+                    <li>Portainer</li>
+                    <li>Homepage</li>
+                </ul>
             </section>
 
-            <section class="mb-4">
-                <h2>Teknisk miljö</h2>
-                <p>
-                    Servern är en Raspberry Pi med Debian Linux. De flesta tjänster körs som Docker-containers
-                    och hanteras med Docker Compose.
-                </p>
-                <p>
-                    I miljön kör jag bland annat Home Assistant, Pi-hole, Nginx Proxy Manager, Nextcloud,
-                    Immich, Uptime Kuma, Portainer och Homepage.
-                </p>
-                <p>
-                    En stor del av projektet har inte bara varit att få tjänsterna att starta, utan att förstå
-                    hur de ska kommunicera med varandra, hur de ska nås från det lokala nätverket och hur
-                    miljön ska kunna underhållas och felsökas.
-                </p>
-            </section>
-
+            <!-- Nätverk, DNS & reverse proxy -->
             <section class="mb-4">
                 <h2>Nätverk, DNS &amp; reverse proxy</h2>
                 <p>
-                    Pi-hole används som DNS-server i det lokala nätverket. Det gör att jag kan använda interna
-                    domännamn för mina tjänster istället för att behöva komma ihåg IP-adresser och portar.
+                    För att tjänsterna ska vara enkla att nå i det lokala nätverket använder jag Pi-hole som
+                    lokal DNS och Nginx Proxy Manager som reverse proxy.
                 </p>
+
+                <ol class="flow" aria-label="Vägen från klient till Docker-tjänst">
+                    <li><span>Klient</span></li>
+                    <li><span>Pi-hole / DNS</span></li>
+                    <li><span>Nginx Proxy Manager</span></li>
+                    <li><span>Docker-tjänst</span></li>
+                </ol>
+
                 <p>
-                    Flera Docker-tjänster ligger på ett gemensamt Docker-nätverk och nås genom Nginx Proxy
-                    Manager. Reverse proxyn tar emot trafiken och skickar den vidare till rätt container och
-                    port.
-                </p>
-                <p>
-                    Alla tjänster fungerar däremot inte på exakt samma sätt. Home Assistant kör exempelvis med
-                    <code>host networking</code>, vilket ger tjänsten direkt åtkomst till värdens nätverk
-                    istället för att använda ett separat Docker-nätverk.
-                </p>
-                <p>
-                    Att bygga upp detta har hjälpt mig att få en bättre praktisk förståelse för skillnaden
-                    mellan Docker-nätverk och värdens nätverk, DNS och hur trafik faktiskt tar sig från en
-                    klient till rätt tjänst.
+                    Ett anrop till exempelvis <code>nextcloud.home</code> går via Pi-hole, som översätter det
+                    lokala namnet till serverns IP-adress. Nginx Proxy Manager skickar sedan trafiken vidare
+                    till rätt tjänst. Flera av tjänsterna ligger på ett gemensamt Docker-nätverk och kan
+                    kommunicera internt där.
                 </p>
             </section>
 
+            <!-- Docker & Docker Compose -->
             <section class="mb-4">
-                <h2>Drift, övervakning &amp; felsökning</h2>
+                <h2>Docker &amp; Docker Compose</h2>
                 <p>
-                    Jag underhåller miljön löpande genom att uppdatera Debian och Docker-images, kontrollera
-                    containrar och loggar och felsöka problem som uppstår.
+                    Docker och Docker Compose är grunden för hur jag kör tjänsterna. Jag använder Compose för
+                    att definiera tjänster, nätverk, volymer och annan konfiguration och Portainer som ett
+                    kompletterande gränssnitt för att få överblick över Docker-miljön.
                 </p>
                 <p>
-                    Jag har också gått från att använda generella image-taggar som <code>latest</code> till att
-                    använda specifika versioner där det är lämpligt. Det ger bättre kontroll över vilka
-                    versioner som faktiskt körs och när de uppdateras.
-                </p>
-                <p>
-                    Uptime Kuma används för enkel övervakning av tjänsterna och för att snabbt kunna se om
-                    någon av dem inte längre är tillgänglig.
-                </p>
-                <p>
-                    Felsökningen är en del av projektet som jag tycker har varit särskilt lärorik. Ett problem
-                    kan exempelvis ligga i DNS, Docker-nätverket, reverse proxyn, containerkonfigurationen
-                    eller i själva applikationen. Det gör att jag behöver felsöka steg för steg och försöka
-                    förstå var i flödet problemet faktiskt uppstår.
+                    För att få en samlad överblick använder jag Homepage, där tjänsterna i homelabbet finns
+                    samlade på en dashboard.
                 </p>
             </section>
 
+            <!-- Dokumentation -->
             <section class="mb-4">
-                <h2>Vad jag har lärt mig</h2>
+                <h2>Dokumentation</h2>
                 <p>
-                    Homelabbet har framför allt gett mig en mer praktisk förståelse för hur Linux, Docker, DNS,
-                    nätverk, reverse proxy och olika applikationer hänger ihop.
-                </p>
-                <p>
-                    Det har också gjort att jag blivit mer van vid att arbeta direkt i Linux, läsa loggar,
-                    kontrollera containrar, testa nätverkskommunikation och försöka hitta grundorsaken när
-                    något inte fungerar.
-                </p>
-                <p>
-                    Homelabbet är ett pågående projekt som jag bygger vidare på i takt med att jag testar nya
-                    tekniker och lär mig mer om drift och infrastruktur.
+                    Jag använder MkDocs för att dokumentera hur miljön är uppbyggd och konfigurerad.
+                    Dokumentationen innehåller bland annat systemöversikt, arkitektur och dokumentation för
+                    enskilda tjänster.
                 </p>
             </section>
-
-            <aside class="summary-box p-4 mt-4">
-                <h3 class="h5 fw-bold mb-3">Sammanfattning</h3>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-3">
-                        <strong>Miljö</strong><br />
-                        Raspberry Pi / Debian Linux
-                    </li>
-                    <li class="mb-3">
-                        <strong>Containers</strong><br />
-                        Docker / Docker Compose
-                    </li>
-                    <li class="mb-3">
-                        <strong>Nätverk</strong><br />
-                        DNS / Docker networks / Reverse proxy
-                    </li>
-                    <li>
-                        <strong>Drift</strong><br />
-                        Uptime Kuma / loggar / uppdateringar / versionshantering
-                    </li>
-                </ul>
-            </aside>
 
         </div>
     </div>
