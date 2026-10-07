@@ -1,0 +1,4 @@
+/* Startsidan: något mindre luft mellan profilen och projekten än standardsektionerna */
+.home-profile {
+    padding-bottom: 2.5rem;
+}

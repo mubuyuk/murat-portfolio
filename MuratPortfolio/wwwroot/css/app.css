@@ -31,19 +31,6 @@ h1, h2, h3, .post-title {
     flex-direction: column; /* barnen (komponenten + l�nken) staplas */
 }
 
-    .home-projects .view-all {
-        align-self: flex-end; /* nu kan den hoppa till h�ger */
-        margin-top: 1.5rem; /* luft fr�n projekten ovanf�r */
-        text-decoration: none;
-        font-weight: 500;
-        color: var(--text);
-        transition: color 0.2s ease;
-    }
-
-        .home-projects .view-all:hover {
-            color: var(--accent);
-        }
-
 
 /* ===== Base ===== */
 html {

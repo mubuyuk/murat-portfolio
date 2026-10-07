@@ -2,9 +2,16 @@
     <div class="projects-container">
 
         <div class="projects-header">
-            <span class="overline">Projekt</span>
+            @if (PageHeading)
+            {
+                <h1 class="overline">Projekt</h1>
+            }
+            else
+            {
+                <h2 class="overline">Projekt</h2>
+            }
 
-            @if (Max.HasValue)
+            @if (ShowAllLink)
             {
                 <a class="view-all" href="/projects" aria-label="Visa alla projekt">
                     Visa alla projekt →
@@ -16,43 +23,45 @@
             @foreach (var p in Visible)
             {
                 <article class="project-card">
-                    <a class="project-link-wrapper"
-                       href="@p.Slug"
-                       aria-label="Visa mer om @p.Title">
-
-                        @if (!string.IsNullOrWhiteSpace(p.GitHubUrl))
+                    <div class="card-grid">
+                        @if (!string.IsNullOrEmpty(p.ImageUrl))
                         {
-                            <a class="gh-link"
-                               href="@p.GitHubUrl"
-                               target="_blank"
-                               rel="noopener"
-                               aria-label="Öppna GitHub för @p.Title"
-                               @onclick:stopPropagation="true">
-                                <i class="bi bi-github"></i>
-                            </a>
+                            <div class="card-media">
+                                <img src="@p.ImageUrl" alt="" loading="lazy" decoding="async" />
+                            </div>
                         }
 
-                        <div class="card-grid">
-                            @if (!string.IsNullOrEmpty(p.ImageUrl))
+                        <div class="card-body">
+                            <!-- Länken täcker hela kortet via ::after -->
+                            @if (PageHeading)
                             {
-                                <div class="card-media">
-                                    <img src="@p.ImageUrl" alt="" loading="lazy" decoding="async" />
-                                </div>
+                                <h2 class="project-title">@TitleLink(p)</h2>
                             }
+                            else
+                            {
+                                <h3 class="project-title">@TitleLink(p)</h3>
+                            }
+                            <p class="project-summary">@p.Summary</p>
 
-                            <div class="card-body">
-                                <h3 class="project-title">@p.Title</h3>
-                                <p class="project-summary">@p.Summary</p>
-
-                                <ul class="pills tech-pills" aria-label="Tekniker">
-                                    @foreach (var t in p.Tech)
-                                    {
-                                        <li>@t</li>
-                                    }
-                                </ul>
-                            </div>
+                            <ul class="pills tech-pills" aria-label="Tekniker">
+                                @foreach (var t in p.Tech)
+                                {
+                                    <li>@t</li>
+                                }
+                            </ul>
                         </div>
-                    </a>
+                    </div>
+
+                    @if (!string.IsNullOrWhiteSpace(p.GitHubUrl))
+                    {
+                        <a class="gh-link"
+                           href="@p.GitHubUrl"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="Öppna GitHub för @p.Title">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    }
                 </article>
 
             }
@@ -77,7 +86,7 @@
             Summary = "LIA-projekt på Bonfire Cloud & Engineering där vi satte upp en mindre Software Factory-miljö i Kubernetes (k3s), med GitLab CI/CD och Argo CD/GitOps för att bygga och deploya applikationer.",
             Tech = new() { "Kubernetes (k3s)", "Argo CD", "GitOps", "GitLab CI/CD", "GitLab Runner" },
             ImageUrl = "/images/project_bonfire_logo.png",
-            GitHubUrl = "#"
+            GitHubUrl = null
         },
         new ProjectItem {
             Title = "Blazor WebAssembly Portfolio",
@@ -99,7 +108,16 @@
         public string? GitHubUrl { get; set; }
     }
 
+    // Max begränsar antalet kort. ShowAllLink styr separat om "Visa alla projekt" visas.
     [Parameter] public int? Max { get; set; }
+    [Parameter] public bool ShowAllLink { get; set; }
+
+    // Sätts på /projects: "Projekt" blir sidans H1 och korttitlarna H2.
+    // Annars (startsidan) ligger sektionen under sidans egen H1: "Projekt" är H2 och korttitlarna H3.
+    [Parameter] public bool PageHeading { get; set; }
+
+    private RenderFragment<ProjectItem> TitleLink => p =>
+        @<a class="project-link" href="@p.Slug">@p.Title</a>;
 
     private IEnumerable<ProjectItem> Visible
     {
