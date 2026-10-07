@@ -4,14 +4,6 @@
 <article class="blog-article container py-5">
     <div class="article-wrap mx-auto">
 
-        <!-- Hero -->
-       @*  <figure class="post-hero mb-3">
-            <img src="#"
-                 width="180"
-                 height="180"
-                 alt="Blazor WebAssembly Portfolio" />
-        </figure> *@
-
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="mb-2">
             <ol class="breadcrumb mb-0">
@@ -27,149 +19,85 @@
         <header class="article-head">
             <h1 class="post-title">Blazor WebAssembly Portfolio</h1>
             <p class="post-subtitle">
-                Min personliga portfoliosida byggd i Blazor WebAssembly med C# och .NET.
-                Sidan fungerar som en samlingsplats för mina projekt och mitt lärande
-                inom backend, cloud och DevOps.
+                Min personliga portfoliosida byggd i Blazor WebAssembly med C# och .NET. Jag byggde den för
+                att samla och presentera mina projekt på ett tydligt sätt, samtidigt som jag fick arbeta
+                praktiskt med komponentbaserad webbutveckling och deployment till Azure.
             </p>
 
             <div class="d-flex flex-wrap gap-2 mt-2">
                 <span class="badge text-bg-dark">Blazor WebAssembly</span>
                 <span class="badge text-bg-dark">C# / .NET</span>
-                <span class="badge text-bg-dark">Responsiv design</span>
                 <span class="badge text-bg-dark">Azure Static Web Apps</span>
-                <span class="badge text-bg-dark">GitHub Actions / CI-CD</span>
+                <span class="badge text-bg-dark">GitHub Actions</span>
+                <span class="badge text-bg-dark">CI/CD</span>
             </div>
         </header>
 
         <!-- Innehåll -->
         <div class="article-body">
 
+            <!-- Om projektet -->
             <section class="mb-4">
-                <h2>Syftet med portfoliosidan</h2>
+                <h2>Om projektet</h2>
                 <p>
-                    Jag ville ha mer än bara ett CV eller en länk till GitHub. Den här sidan är tänkt
-                    som en plats där jag kan samla mina projekt, skriva om vad jag lär mig och visa hur
-                    jag tänker kring .NET, moln och DevOps.
+                    Jag byggde portfoliosidan för att ha en egen plats där jag kan presentera mina projekt och
+                    min tekniska bakgrund mer utförligt än i ett CV. Sidan har utvecklats successivt och
+                    fungerar idag som en samlingsplats för mina projekt inom bland annat homelab, DevOps
+                    och .NET.
                 </p>
                 <p>
-                    Portfoliosidan är därför både ett skyltfönster och en sandlåda. Jag använder den för att:
-                </p>
-                <ul>
-                    <li>visa upp projekt på ett mer begripligt sätt än bara kod på GitHub</li>
-                    <li>testa idéer kring arkitektur, deployment och moln</li>
-                </ul>
-            </section>
-
-            <section class="mb-4">
-                <h2>Arkitektur & upplägg</h2>
-                <p>
-                    Sidan är byggd som en <strong>Single Page Application (SPA)</strong> i
-                    <strong>Blazor WebAssembly</strong>. Allt UI och logik är skrivet i C#, vilket
-                    gör att jag kan jobba i samma språk, C#, som jag använder professionellt.
-                </p>
-                <p>
-                    Layouten är uppdelad i återanvändbara komponenter för:
-                </p>
-                <ul>
-                    <li><strong>Profil</strong> – kort om mig, vad jag gillar att jobba med.</li>
-                    <li><strong>Projekt</strong> – korta sammanfattningar av det jag bygger.</li>
-                    <li><strong>Utbildning</strong> – bakgrund, studier och teknikstack.</li>
-                </ul>
-                <p>
-                    Allt är stilat med Bootstrap + egen CSS, med fokus på att vara lättläst både på
-                    mobil och desktop.
+                    Projektet har samtidigt gett mig en egen applikation där jag kan arbeta praktiskt med
+                    Blazor, C#/.NET, komponentstruktur, styling och deployment.
                 </p>
             </section>
 
+            <!-- Tekniskt upplägg -->
             <section class="mb-4">
-                <h2>Hosting som Azure Static Web App</h2>
+                <h2>Tekniskt upplägg</h2>
                 <p>
-                    Portfoliosidan hostas som en <strong>Azure Static Web App</strong>. Det innebär att
-                    Blazor-builden publiceras som statiska filer, vilket ger:
+                    Portfoliosidan är byggd som en Blazor WebAssembly-applikation i C#/.NET. Gränssnittet är
+                    uppdelat i återanvändbara Razor-komponenter för bland annat navigation, profil, projekt,
+                    utbildning och footer.
                 </p>
-                <ul>
-                    <li>snabb laddning och enkel drift</li>
-                    <li>inbyggd koppling mot GitHub för automatiska deploys</li>
-                    <li>enkel setup utan att behöva hantera egna servrar</li>
-                </ul>
                 <p>
-                    För mig är det också ett sätt att bli mer bekväm med Azure och hur man publicerar
-                    moderna webbappar i molnet.
+                    För layout och styling använder sidan Bootstrap tillsammans med egen CSS. Gränssnittet är
+                    anpassat för både desktop och mobil.
                 </p>
             </section>
 
+            <!-- Deployment & CI/CD -->
             <section class="mb-4">
-                <h2>Automatiserad drift och deploy</h2>
+                <h2>Deployment &amp; CI/CD</h2>
                 <p>
-                    Sidan byggs och driftsätts automatiskt via <strong>GitHub Actions</strong>. Varje push till
-                    huvudgrenen bygger om Blazor-appen och publicerar den till <strong>Azure Static Web
-                    Apps</strong>, och varje pull request får en egen preview-miljö som stängs automatiskt när
-                    PR:en stängs.
+                    Portfoliosidan hostas i Azure Static Web Apps och deployment sker via GitHub Actions. När
+                    ändringar mergas till huvudgrenen byggs och publiceras Blazor-applikationen automatiskt
+                    till produktionsmiljön.
                 </p>
+
+                <ol class="flow" aria-label="Flödet från kodändring till publicerad sida">
+                    <li><span>Kodändring</span></li>
+                    <li><span>Pull request</span></li>
+                    <li><span>GitHub Actions</span></li>
+                    <li><span>Azure Static Web Apps</span></li>
+                </ol>
+
                 <p>
-                    Det ger mig en enkel men verklig CI/CD-pipeline att underhålla, utan egna servrar att sköta
-                    manuellt.
+                    Pull requests får en separat preview-miljö i Azure Static Web Apps, vilket gör att
+                    ändringar kan kontrolleras innan de mergas. När en pull request stängs tas preview-miljön
+                    bort automatiskt.
                 </p>
             </section>
 
+            <!-- Vad projektet gett mig -->
             <section class="mb-4">
-                <h2>Portfoliosidan som nav för mina projekt</h2>
+                <h2>Vad projektet gett mig</h2>
                 <p>
-                    En viktig del med den här sidan är att den fungerar som ett nav. I stället för att
-                    sprida information om projekt på olika ställen kan jag:
-                </p>
-                <ul>
-                    <li>visa en kort översikt av varje projekt på startsidan</li>
-                    <li>länka vidare till en mer detaljerad beskrivning per projekt</li>
-                </ul>
-                <p>
-                    Allt hänger ihop: projekten och min resa som utvecklare.
+                    Projektet har gett mig praktisk erfarenhet av att bygga och vidareutveckla en egen
+                    Blazor-applikation och att hantera hela flödet från kodändring till deployment. Det har
+                    också gett mig en miljö där jag kan arbeta vidare med C#/.NET, webbgränssnitt, Git och
+                    CI/CD samtidigt som själva portfolion utvecklas.
                 </p>
             </section>
-
-            <section class="mb-4">
-                <h2>Varför Blazor, .NET och Azure?</h2>
-                <p>
-                    Jag vill jobba med .NET, backend och molnlösningar. Därför kändes det naturligt att
-                    min egen portfolio skulle använda samma teknikstack. Genom att bygga allt själv från
-                    frontend i Blazor till deployment i Azure.
-                </p>
-                <p>
-                    Portfoliosidan blir på så sätt ett konkret exempel på hur jag tänker kring arkitektur,
-                    struktur och verktyg.
-                </p>
-            </section>
-
-            <aside class="summary-box p-4 mt-4">
-                <h3 class="h5 fw-bold mb-3">Sammanfattning av portfoliosidan</h3>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-3">
-                        <strong>Blazor WebAssembly</strong><br />
-                        Frontend byggd som SPA i C#.<br />
-                        <span class="why">— </span> Samma språk för UI-logik som för backend.
-                    </li>
-                    <li class="mb-3">
-                        <strong>.NET</strong><br />
-                        Basen för komponenter och struktur i frontend.<br />
-                        <span class="why">— </span> Samma språk och ekosystem som jag jobbar med professionellt.
-                    </li>
-                    <li class="mb-3">
-                        <strong>Azure Static Web Apps</strong><br />
-                        Hostar själva portfoliosidan.<br />
-                        <span class="why">— </span> Enkel, snabbt och gratis.
-                    </li>
-                    <li class="mb-3">
-                        <strong>GitHub Actions</strong><br />
-                        Bygger och deployar sidan automatiskt vid varje push och pull request.<br />
-                        <span class="why">— </span> En enkel, verklig CI/CD-pipeline utan egna servrar.
-                    </li>
-                    <li>
-                        <strong>Portfolion som nav</strong><br />
-                        Samlar projekt och lärande.<br />
-                        <span class="why">— </span> En plats där jag kan följa min egen utveckling över tid.
-                    </li>
-                </ul>
-            </aside>
 
         </div>
     </div>
