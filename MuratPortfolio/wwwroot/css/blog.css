@@ -198,12 +198,6 @@
             text-decoration: underline;
         }
 
-    /* Extra “varför”-markering */
-    .blog-article .why {
-        font-weight: 600;
-        color: #60a5fa; /* blå accent */
-    }
-
     /* =========================================
    INLINE-KOD
 ========================================= */
