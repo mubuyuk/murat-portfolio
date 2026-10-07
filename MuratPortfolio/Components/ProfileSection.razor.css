@@ -20,6 +20,38 @@
     margin: 0;
 }
 
+/* Pågående utbildning: diskret rad under brödtexten */
+.profile-ongoing {
+    color: var(--muted);
+    font-size: .9rem;
+    margin: 0;
+}
+
+    .profile-ongoing a {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .profile-ongoing a:hover {
+            text-decoration: underline;
+        }
+
+.profile-ongoing-school {
+    white-space: nowrap;
+}
+
+/* Smala skärmar: skolan på egen rad i stället för en lös avskiljare */
+@media (max-width: 575.98px) {
+    .profile-ongoing-sep {
+        display: none;
+    }
+
+    .profile-ongoing-school {
+        display: block;
+    }
+}
+
 /* Badge överst */
 .custom-badge {
     background: rgba(148,163,184,.14);

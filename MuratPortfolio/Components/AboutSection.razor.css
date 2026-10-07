@@ -37,23 +37,16 @@
         box-shadow: 0 0 0 3px var(--ring, rgba(148,163,184,.35));
     }
 
-.about-name {
-    margin: .25rem 0 .35rem;
+.about-title {
+    margin: .25rem 0 1.25rem;
     font-weight: 800;
-    font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
-    line-height: 1.2;
+    font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.75rem);
+    line-height: 1.25;
+    text-wrap: balance;
     color: var(--text, #e5e7eb);
 }
 
-.about-tagline {
-    margin: 0 0 1.25rem;
-    font-size: clamp(1rem, .95rem + .3vw, 1.15rem);
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--text, #e5e7eb);
-}
-
-.about-intro p:not(.about-tagline) {
+.about-intro p {
     color: var(--text, #e5e7eb);
     line-height: 1.75;
     margin: 0 0 1rem;

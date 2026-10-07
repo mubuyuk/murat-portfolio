@@ -29,6 +29,8 @@
 
 .overline {
     display: inline-block;
+    margin: 0; /* nollställer rubrikens standardmarginal (h1/h2) */
+    line-height: inherit;
     font-weight: 700;
     font-size: .8rem;
     letter-spacing: .08em;
@@ -59,8 +61,33 @@
     }
 
 
+/* Projektlänken ligger i titeln men täcker hela kortet */
+.project-link,
+.project-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+    .project-link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 14px; /* samma som .project-card */
+    }
+
+    .project-link:focus-visible {
+        outline: none;
+    }
+
+        .project-link:focus-visible::after {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+/* GitHub-länken är en egen länk ovanpå kortets klickyta */
 .gh-link {
     position: absolute;
+    z-index: 1;
     top: .6rem;
     right: .6rem;
     display: inline-flex;
