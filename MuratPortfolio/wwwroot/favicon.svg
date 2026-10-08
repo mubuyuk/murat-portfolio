@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!-- Drawn on a 16-unit grid so the letters stay sharp at 16x16 and 32x32 -->
+  <rect width="16" height="16" rx="3" fill="#0f172a"/>
+  <g fill="none" stroke="#30e0b6">
+    <circle cx="8" cy="8" r="7.2" stroke-width=".9"/>
+    <g stroke-width="1" stroke-linejoin="bevel">
+      <!-- M -->
+      <path d="M3.5 11V5l2 3.2 2-3.2v6"/>
+      <!-- B -->
+      <path d="M9.5 11V5M9.5 5.5h1.8a1 1 0 0 1 0 2H9.5M9.5 7.5h1.8a1.5 1.5 0 0 1 0 3H9.5"/>
+    </g>
+  </g>
+</svg>
