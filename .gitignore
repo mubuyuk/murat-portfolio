@@ -361,3 +361,29 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# ---------------------------------------------------------------
+# Local secrets and machine-specific files
+# ---------------------------------------------------------------
+
+# Environment files (.env.example may be committed as a template)
+.env
+.env.*
+!.env.example
+
+# Local settings that can hold connection strings or keys
+local.settings.json
+appsettings.Development.json
+secrets.json
+
+# Private keys and certificates (*.pfx is already ignored above)
+*.pem
+*.p12
+id_rsa
+id_ed25519
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
