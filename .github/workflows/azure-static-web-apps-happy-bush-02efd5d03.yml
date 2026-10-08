@@ -9,6 +9,10 @@ on:
     branches:
       - master
 
+# Deployment authenticates with the Azure token, so GITHUB_TOKEN only needs to read the repository for checkout.
+permissions:
+  contents: read
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
