@@ -2,7 +2,7 @@
 
 Source code for my personal portfolio site. It is a static, client-side web app built with Blazor WebAssembly and deployed to Azure Static Web Apps.
 
-**Live site:** https://happy-bush-02efd5d03.1.azurestaticapps.net
+**Live site:** https://www.muratbuyuksal.se
 
 ## Tech stack
 
