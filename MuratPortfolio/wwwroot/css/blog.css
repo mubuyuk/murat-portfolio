@@ -107,9 +107,12 @@
         padding: 1.5rem;
     }
 
+        /* Korttitel: tydligt under H2-nivån */
         .blog-article .summary-box h3 {
             margin-top: 0;
             margin-bottom: 1rem;
+            font-size: 1.05rem;
+            font-weight: 700;
         }
 
     /* =========================================
@@ -229,7 +232,7 @@
 .blog-article h2 {
     font-size: clamp(1.2rem, 1rem + .6vw, 1.5rem);
     font-weight: 700;
-    margin: 1.75rem 0 .75rem;
+    margin: 2.75rem 0 .75rem;
     color: var(--text, #e5e7eb);
     letter-spacing: .3px;
     border-bottom: 1px solid rgba(255,255,255,.25);
