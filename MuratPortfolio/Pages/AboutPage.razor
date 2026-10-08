@@ -1,7 +1,8 @@
 ﻿@page "/about"
-<PageTitle>Om mig | Murat Buyuksal</PageTitle>
+@inject NavigationManager Navigation
 
-<section class="section">
+@* Om-sidan är sammanslagen med startsidan. Gamla länkar till /about skickas dit. *@
 
-    <AboutSection />
-</section>
+@code {
+    protected override void OnInitialized() => Navigation.NavigateTo("/", replace: true);
+}

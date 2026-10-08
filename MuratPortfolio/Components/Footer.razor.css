@@ -33,6 +33,17 @@
             color: var(--accent);
         }
 
+/* Smala skärmar: länkarna bryts på två rader, så avskiljarna döljs för att inte bli hängande */
+@media (max-width: 480px) {
+    .nb-footer-links {
+        gap: .35rem 1.1rem;
+    }
+
+        .nb-footer-links span {
+            display: none;
+        }
+}
+
 .nb-footer-copy {
     font-size: .875rem;
     color: var(--muted, #94a3b8);

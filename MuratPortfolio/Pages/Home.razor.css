@@ -1,4 +1,9 @@
-/* Startsidan: något mindre luft mellan profilen och projekten än standardsektionerna */
+/* Startsidan: något mindre luft mellan profilen och tidslinjen än standardsektionerna */
 .home-profile {
     padding-bottom: 2.5rem;
+}
+
+/* Sektionen är ett flex-barn med auto-marginaler och krymper annars till textens bredd */
+.home-experience {
+    width: 100%;
 }

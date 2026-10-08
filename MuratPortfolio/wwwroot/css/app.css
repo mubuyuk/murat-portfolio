@@ -26,11 +26,6 @@ h1, h2, h3, .post-title {
     }
 }
 
-.home-projects {
-    display: flex;
-    flex-direction: column; /* barnen (komponenten + l�nken) staplas */
-}
-
 
 /* ===== Base ===== */
 html {
