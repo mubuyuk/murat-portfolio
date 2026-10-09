@@ -40,7 +40,7 @@
 }
 
 .projects-list {
-    --media-max-w: 220px; /* maxbredd på bildkolumn på desktop */
+    --media-max-w: 340px; /* maxbredd på bildkolumn på desktop */
     --gap: .9rem;
     display: flex;
     flex-direction: column;
