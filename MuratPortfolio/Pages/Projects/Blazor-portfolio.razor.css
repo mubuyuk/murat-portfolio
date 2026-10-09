@@ -1,0 +1,350 @@
+/* =========================================
+   SNABBFAKTA (fyra rutor i samma stil som .summary-box)
+========================================= */
+
+.bp-facts {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .75rem;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+    .bp-facts .summary-box {
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        padding: .9rem 1rem;
+    }
+
+.bp-fact-label {
+    color: var(--text-muted);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.bp-fact-value {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.bp-fact-note {
+    color: var(--text-muted);
+    font-size: .85rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 992px) {
+    .bp-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 340px) {
+    .bp-facts {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   ARKITEKTURDIAGRAM (två .flow-rader med gemensam nod)
+========================================= */
+
+.bp-diagram {
+    display: grid;
+    gap: 1.25rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.blog-article .bp-lane-label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+    .blog-article .bp-lane-label span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.4rem;
+        height: 1.4rem;
+        border: 1px solid var(--accent);
+        border-radius: 50%;
+        color: var(--accent);
+        font-size: .75rem;
+        letter-spacing: 0;
+    }
+
+.blog-article .bp-flow {
+    margin: .6rem 0 0;
+}
+
+    .blog-article .bp-flow li {
+        min-width: 0;
+    }
+
+        /* Noden: titel med valfri undertext */
+        .blog-article .bp-flow li > span {
+            flex-direction: column;
+            gap: .1rem;
+            min-width: 0;
+        }
+
+.bp-node-title {
+    font-size: .9rem;
+}
+
+.bp-node-sub {
+    color: var(--text-muted);
+    font-size: .78rem;
+    font-weight: 400;
+}
+
+/* Azure Static Web Apps: mötespunkten mellan de två flödena */
+.blog-article .bp-flow li > span.bp-node-hub {
+    border-color: var(--accent);
+    background: rgba(48, 224, 182, .1);
+}
+
+/* DNS är ett uppslag, inte ett steg som trafiken passerar */
+.blog-article .bp-flow li > span.bp-node-lookup {
+    border-style: dashed;
+}
+
+.blog-article .bp-caption {
+    color: var(--text-muted);
+    font-size: .92rem;
+}
+
+/* =========================================
+   PRODUCTION / PREVIEW
+========================================= */
+
+.bp-envs {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+    padding: 0;
+    margin: 1rem 0 1.25rem;
+}
+
+    .bp-envs li {
+        background: var(--summary-bg);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: .6rem;
+        padding: .9rem 1rem;
+        font-size: .95rem;
+        line-height: 1.6;
+    }
+
+    .bp-envs strong {
+        display: block;
+        margin-bottom: .25rem;
+    }
+
+@media (max-width: 576px) {
+    .bp-envs {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   DNS-TABELL
+========================================= */
+
+.bp-table {
+    width: 100%;
+    margin: 1rem 0 1.25rem;
+    border-collapse: collapse;
+    font-size: .95rem;
+}
+
+    .bp-table th,
+    .bp-table td {
+        padding: .6rem .75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .bp-table thead th {
+        color: var(--text-muted);
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        border-bottom-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .bp-table tbody th {
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+/* Mobil: varje post blir ett eget kort med etikett framför värdet */
+@media (max-width: 576px) {
+    .bp-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+
+    .bp-table,
+    .bp-table tbody,
+    .bp-table tr,
+    .bp-table th,
+    .bp-table td {
+        display: block;
+    }
+
+    .bp-table tr {
+        background: var(--summary-bg);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: .6rem;
+        padding: .6rem .9rem;
+        margin-bottom: .6rem;
+    }
+
+    .bp-table th,
+    .bp-table td {
+        display: grid;
+        grid-template-columns: 5.5rem minmax(0, 1fr);
+        gap: .5rem;
+        padding: .2rem 0;
+        border: 0;
+        white-space: normal;
+    }
+
+        .bp-table tbody th::before,
+        .bp-table td::before {
+            content: attr(data-label);
+            color: var(--text-muted);
+            font-size: .8rem;
+            font-weight: 600;
+        }
+
+        .bp-table td code {
+            justify-self: start;
+        }
+}
+
+/* =========================================
+   SCREENSHOTS (Azure Portal)
+========================================= */
+
+.bp-shot {
+    margin: 1.5rem 0 0;
+}
+
+    .bp-shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: .6rem;
+    }
+
+.bp-shot figcaption {
+    margin-top: .5rem;
+    color: var(--text-muted);
+    font-size: .9rem;
+    text-align: center;
+}
+
+/* =========================================
+   FREE-PLANENS GRÄNSER
+========================================= */
+
+.bp-limits {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 0;
+    margin: 1rem 0 1.25rem;
+}
+
+    .bp-limits li {
+        background: var(--summary-bg);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: .6rem;
+        padding: .5rem .8rem;
+        font-size: .95rem;
+        line-height: 1.3;
+    }
+
+    .bp-limits strong {
+        color: var(--accent);
+    }
+
+/* =========================================
+   FÖRDJUPNING (native details, samma chevron som "Mer information" på startsidan)
+========================================= */
+
+.bp-faq {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+    .bp-faq details {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .bp-faq summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: .85rem 0;
+        list-style: none;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 6px;
+    }
+
+        .bp-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Chevron: pekar nedåt när stängd, uppåt när öppen */
+        .bp-faq summary::after {
+            content: "";
+            flex: 0 0 auto;
+            width: .45rem;
+            height: .45rem;
+            margin: -.2rem .25rem 0 0;
+            border-right: 2px solid var(--accent, #30e0b6);
+            border-bottom: 2px solid var(--accent, #30e0b6);
+            transform: rotate(45deg);
+            transition: transform .15s ease;
+        }
+
+        .bp-faq summary:hover {
+            color: var(--accent, #30e0b6);
+        }
+
+        .bp-faq summary:focus-visible {
+            outline: 2px solid var(--accent, #30e0b6);
+            outline-offset: 3px;
+        }
+
+    .bp-faq details[open] summary::after {
+        margin-top: .2rem;
+        transform: rotate(-135deg);
+    }
+
+.bp-faq-body {
+    padding-bottom: .5rem;
+}

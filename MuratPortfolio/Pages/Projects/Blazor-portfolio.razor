@@ -19,19 +19,44 @@
         <header class="article-head">
             <h1 class="post-title">Blazor WebAssembly Portfolio</h1>
             <p class="post-subtitle">
-                Min personliga portfoliosida byggd i Blazor WebAssembly med C# och .NET. Jag byggde den för
-                att samla och presentera mina projekt på ett tydligt sätt, samtidigt som jag fick arbeta
-                praktiskt med komponentbaserad webbutveckling och deployment till Azure.
+                Min personliga portfoliosida, byggd i Blazor WebAssembly på .NET 8. Den hostas i Azure
+                Static Web Apps och använder GitHub Actions för deployment. Jag har även kopplat min egen
+                domän till lösningen, med HTTPS via Azure.
             </p>
 
             <div class="d-flex flex-wrap gap-2 mt-2">
                 <span class="badge text-bg-dark">Blazor WebAssembly</span>
-                <span class="badge text-bg-dark">C# / .NET</span>
+                <span class="badge text-bg-dark">.NET 8</span>
                 <span class="badge text-bg-dark">Azure Static Web Apps</span>
                 <span class="badge text-bg-dark">GitHub Actions</span>
-                <span class="badge text-bg-dark">CI/CD</span>
+                <span class="badge text-bg-dark">DNS</span>
+                <span class="badge text-bg-dark">HTTPS</span>
             </div>
         </header>
+
+        <!-- Snabbfakta -->
+        <ul class="bp-facts" aria-label="Snabbfakta om projektet">
+            <li class="summary-box">
+                <span class="bp-fact-label">Hosting</span>
+                <span class="bp-fact-value">Azure Static Web Apps</span>
+                <span class="bp-fact-note">Free</span>
+            </li>
+            <li class="summary-box">
+                <span class="bp-fact-label">Deployment</span>
+                <span class="bp-fact-value">GitHub Actions</span>
+                <span class="bp-fact-note">master → Production</span>
+            </li>
+            <li class="summary-box">
+                <span class="bp-fact-label">Domän</span>
+                <span class="bp-fact-value">Egen domän</span>
+                <span class="bp-fact-note">DNS hos one.com · HTTPS via Azure</span>
+            </li>
+            <li class="summary-box">
+                <span class="bp-fact-label">Azure-hosting</span>
+                <span class="bp-fact-value">0 kr/mån</span>
+                <span class="bp-fact-note">Static Web Apps Free</span>
+            </li>
+        </ul>
 
         <!-- Innehåll -->
         <div class="article-body">
@@ -40,62 +65,328 @@
             <section class="mb-4">
                 <h2>Om projektet</h2>
                 <p>
-                    Jag byggde portfoliosidan för att ha en egen plats där jag kan presentera mina projekt och
-                    min tekniska bakgrund mer utförligt än i ett CV. Sidan har utvecklats successivt och
-                    fungerar idag som en samlingsplats för mina projekt inom bland annat homelab, DevOps
-                    och .NET.
+                    Det här är min faktiska portfolio. Den är byggd som en fristående Blazor
+                    WebAssembly-applikation på .NET 8, med gränssnittet uppdelat i Razor-komponenter och
+                    Bootstrap tillsammans med egen CSS för layout på desktop och mobil.
                 </p>
                 <p>
-                    Projektet har samtidigt gett mig en egen applikation där jag kan arbeta praktiskt med
-                    Blazor, C#/.NET, komponentstruktur, styling och deployment.
+                    Sidan hostas i Azure Static Web Apps och använder GitHub Actions för deployment. Jag har
+                    även kopplat min egen domän till sidan. Det du läser just nu är den publicerade
+                    applikationen.
                 </p>
             </section>
 
-            <!-- Tekniskt upplägg -->
+            <!-- Så fungerar lösningen -->
             <section class="mb-4">
-                <h2>Tekniskt upplägg</h2>
+                <h2>Så fungerar lösningen</h2>
                 <p>
-                    Portfoliosidan är byggd som en Blazor WebAssembly-applikation i C#/.NET. Gränssnittet är
-                    uppdelat i återanvändbara Razor-komponenter för bland annat navigation, profil, projekt,
-                    utbildning och footer.
+                    Applikationen har ingen egen backend och ingen databas. När den byggs blir resultatet
+                    statiska filer, och själva appen körs i besökarens webbläsare. Diagrammet visar
+                    två saker: hur koden hamnar i Azure och hur besökaren når sidan.
                 </p>
-                <p>
-                    För layout och styling använder sidan Bootstrap tillsammans med egen CSS. Gränssnittet är
-                    anpassat för både desktop och mobil.
+
+                <div class="bp-diagram">
+                    <div class="bp-lane">
+                        <p class="bp-lane-label"><span>1</span> Så hamnar koden i Azure</p>
+                        <ol class="flow bp-flow" aria-label="Flödet från lokal kod till Azure Static Web Apps">
+                            <li>
+                                <span>
+                                    <span class="bp-node-title">Lokal kod</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="bp-node-title">GitHub</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="bp-node-title">GitHub Actions</span>
+                                    <span class="bp-node-sub">build + upload</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="bp-node-hub">
+                                    <span class="bp-node-title">Azure Static Web Apps</span>
+                                </span>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="bp-lane">
+                        <p class="bp-lane-label"><span>2</span> Så når besökaren sidan</p>
+                        <ol class="flow bp-flow" aria-label="Flödet från besökare till appen i webbläsaren">
+                            <li>
+                                <span>
+                                    <span class="bp-node-title">Besökare</span>
+                                    <span class="bp-node-sub">muratbuyuksal.se</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="bp-node-lookup">
+                                    <span class="bp-node-title">DNS-uppslag</span>
+                                    <span class="bp-node-sub">one.com</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="bp-node-hub">
+                                    <span class="bp-node-title">Azure Static Web Apps</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="bp-node-title">Blazor WASM</span>
+                                    <span class="bp-node-sub">laddas ner</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="bp-node-title">Appen körs</span>
+                                    <span class="bp-node-sub">i webbläsaren</span>
+                                </span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <p class="bp-caption">
+                    DNS används för att hitta rätt tjänst. När adressen har slagits upp ansluter webbläsaren
+                    direkt till Azure Static Web Apps. Trafiken går alltså inte genom one.com. Samma flöde
+                    gäller för både <code>muratbuyuksal.se</code> och <code>www.muratbuyuksal.se</code>.
                 </p>
             </section>
 
-            <!-- Deployment & CI/CD -->
+            <!-- Varför Azure Static Web Apps? -->
             <section class="mb-4">
-                <h2>Deployment &amp; CI/CD</h2>
+                <h2>Varför Azure Static Web Apps?</h2>
                 <p>
-                    Portfoliosidan hostas i Azure Static Web Apps och deployment sker via GitHub Actions. När
-                    ändringar mergas till huvudgrenen byggs och publiceras Blazor-applikationen automatiskt
-                    till produktionsmiljön.
+                    Valet beror på hur applikationen fungerar. Blazor WebAssembly byggs till statiska filer, och
+                    eftersom portfolion varken har egen backend eller databas finns det ingen kod som behöver
+                    köras på en server. Det som behövs är en tjänst som lämnar ut filerna, och det är vad
+                    statisk hosting gör.
+                </p>
+                <p>
+                    Därför passar Static Web Apps, och jag behöver inte sköta någon egen webbserver.
+                    Tjänsten har dessutom en färdig koppling till GitHub och stöd för egna domäner
+                    och HTTPS.
+                </p>
+            </section>
+
+            <!-- CI/CD och deployment -->
+            <section class="mb-4">
+                <h2>CI/CD och deployment</h2>
+                <p>
+                    Deployment sker med GitHub Actions. När jag kopplade Azure Static Web Apps till
+                    GitHub skapades workflowet automatiskt av Azure. Det bygger applikationen och
+                    publicerar den till Azure.
                 </p>
 
-                <ol class="flow" aria-label="Flödet från kodändring till publicerad sida">
-                    <li><span>Kodändring</span></li>
-                    <li><span>Pull request</span></li>
-                    <li><span>GitHub Actions</span></li>
-                    <li><span>Azure Static Web Apps</span></li>
-                </ol>
+                <ul class="bp-envs">
+                    <li>
+                        <strong>Push eller merge till master</strong>
+                        GitHub Actions bygger applikationen och publicerar den till
+                        produktionsmiljön.
+                    </li>
+                    <li>
+                        <strong>Pull request</strong>
+                        Samma bygge körs, men resultatet publiceras i en separat preview-miljö som
+                        tas bort när pull requesten stängs.
+                    </li>
+                </ul>
 
                 <p>
-                    Pull requests får en separat preview-miljö i Azure Static Web Apps, vilket gör att
-                    ändringar kan kontrolleras innan de mergas. När en pull request stängs tas preview-miljön
-                    bort automatiskt.
+                    För att GitHub ska få publicera till Azure används en deploy-token. Den ligger
+                    sparad som en secret i GitHub-repot och finns inte i koden.
                 </p>
+
+                <figure class="bp-shot">
+                    <img src="/images/azure-static-web-app-overview.png"
+                         alt="Översikt i Azure Portal: produktionsmiljön har status Ready, hostingplan Free och källan master på GitHub."
+                         width="2290" height="1022" loading="lazy" decoding="async" />
+                    <figcaption>
+                        Azure Static Web Apps i Azure Portal med produktionsmiljön kopplad till GitHub.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- Egen domän, DNS och HTTPS -->
+            <section class="mb-4">
+                <h2>Egen domän, DNS och HTTPS</h2>
+                <p>
+                    Domänen och DNS hanteras hos one.com medan själva webbplatsen hostas i Azure. DNS kopplar
+                    därför domännamnet till Static Web App-resursen.
+                </p>
+
+                <table class="bp-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Post</th>
+                            <th scope="col">Namn</th>
+                            <th scope="col">Pekar på</th>
+                            <th scope="col">Syfte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" data-label="Post">CNAME</th>
+                            <td data-label="Namn"><code>www</code></td>
+                            <td data-label="Pekar på">Azure Static Web Apps-adressen</td>
+                            <td data-label="Syfte">Kopplar www till Azure</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-label="Post">A</th>
+                            <td data-label="Namn">apex/root</td>
+                            <td data-label="Pekar på">Static Web Apps stableInboundIP</td>
+                            <td data-label="Syfte">Kopplar domänen utan www till Azure</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-label="Post">TXT</th>
+                            <td data-label="Namn">apex/root</td>
+                            <td data-label="Pekar på">Verifieringskod</td>
+                            <td data-label="Syfte">Användes för att verifiera domänen mot Azure</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Båda adresserna är tillagda och validerade som custom domains i Azure. Certifikaten för
+                    HTTPS hanteras av Static Web Apps, så jag sköter inga certifikat själv.
+                </p>
+
+                <figure class="bp-shot">
+                    <img src="/images/azure-custom-domains.png"
+                         alt="Custom domains i Azure Portal: den Azure-genererade domänen samt muratbuyuksal.se och www.muratbuyuksal.se med status Validated."
+                         width="1847" height="526" loading="lazy" decoding="async" />
+                    <figcaption>
+                        Både muratbuyuksal.se och www.muratbuyuksal.se är validerade som custom domains i
+                        Azure Static Web Apps.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- Hosting och kostnad -->
+            <section class="mb-4">
+                <h2>Hosting och kostnad</h2>
+                <p>
+                    Sidan ligger på Free-planen i Azure Static Web Apps, så Azure-hostingen kostar 0 kr/mån.
+                    Planen innehåller:
+                </p>
+
+                <ul class="bp-limits" aria-label="Vad som ingår i Free-planen">
+                    <li><strong>100 GB</strong> bandbredd inkluderad per subscription</li>
+                    <li><strong>250 MB</strong> max appstorlek</li>
+                    <li><strong>2</strong> custom domains per app</li>
+                    <li><strong>3</strong> staging environments</li>
+                    <li><strong>SSL-certifikat</strong> ingår</li>
+                </ul>
+
+                <p>
+                    Appstorleken är hur stor den deployade applikationen får vara, och bandbredden är hur
+                    mycket data webbplatsen levererar till besökare. För den nuvarande portfolion räcker
+                    Free-planen.
+                </p>
+                <p>
+                    Domänregistreringen hos one.com är en separat kostnad och ingår inte i Azure-hostingen.
+                </p>
+            </section>
+
+            <!-- Fördjupning -->
+            <section class="mb-4">
+                <h2>Fördjupning</h2>
+
+                <div class="bp-faq">
+                    <details>
+                        <summary>Varför passar Azure Static Web Apps för den här applikationen?</summary>
+                        <div class="bp-faq-body">
+                            <p>
+                                Efter bygget består applikationen av statiska filer som kan skickas direkt till
+                                webbläsaren. Det finns ingen egen serverdel som behöver köra C#-kod för varje
+                                besökare.
+                            </p>
+                            <p>
+                                Det gör att jag inte behöver någon virtuell maskin eller egen webbserver att
+                                installera, uppdatera och övervaka för det här projektet. Därför passar Azure
+                                Static Web Apps bra för hur applikationen ser ut idag.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Vad innebär det att Blazor WebAssembly körs client-side?</summary>
+                        <div class="bp-faq-body">
+                            <p>
+                                När sidan öppnas laddas Blazor-applikationen och .NET-miljön ner till
+                                webbläsaren. C#-koden körs sedan i webbläsaren i stället för på en egen server.
+                                Det gör att den första laddningen kan bli tyngre än för en vanlig HTML-sida.
+                            </p>
+                            <p>
+                                Eftersom Blazor hanterar navigeringen i webbläsaren finns undersidorna inte som
+                                separata HTML-filer på servern. Därför har jag konfigurerat Azure Static Web
+                                Apps så att okända sökvägar skickas till <code>index.html</code>. Annars skulle
+                                till exempel en direktlänk till en projektsida kunna ge 404.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Hur fungerar min egen domän?</summary>
+                        <div class="bp-faq-body">
+                            <p>
+                                När någon skriver in adressen används DNS för att hitta var webbplatsen finns.
+                                För <code>www</code> använder jag en CNAME-post som pekar mot Azure-adressen.
+                                För rotdomänen använder jag i stället en A-post som pekar mot Azure Static Web
+                                Apps IP-adress.
+                            </p>
+                            <p>
+                                Azure behöver också veta att domänen hör till min Static Web App. Därför har
+                                både <code>muratbuyuksal.se</code> och <code>www.muratbuyuksal.se</code> lagts
+                                till och verifierats som custom domains i Azure. HTTPS-certifikaten hanteras
+                                sedan av Azure Static Web Apps.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Vad betyder Free-planens 100 GB bandbredd och 250 MB appstorlek?</summary>
+                        <div class="bp-faq-body">
+                            <p>
+                                Appstorleken gäller det som deployas: filerna från bygget tillsammans med
+                                bilder och dokument. Bandbredden gäller trafiken, alltså den sammanlagda
+                                mängden data som skickas till besökare när de laddar sidan.
+                            </p>
+                            <p>
+                                Den publicerade appen är cirka 16 MB och gränsen är 250 MB.
+                                Bandbredden på 100 GB är den mängd trafik som ingår i Free-planen.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Varför använder projektet Blazor WebAssembly?</summary>
+                        <div class="bp-faq-body">
+                            <p>
+                                Jag valde Blazor WebAssembly eftersom jag ville bygga portfolion med C# och
+                                .NET, som är de tekniker jag främst arbetat med under utbildningen. Det var
+                                alltså inte ett val jag gjorde för att Blazor var den enda eller bästa tekniken
+                                för en portfoliosida.
+                            </p>
+                            <p>
+                                När jag sedan publicerade applikationen i Azure blev det tydligt hur Blazor
+                                WebAssembly fungerar tillsammans med Static Web Apps. Applikationen körs i
+                                webbläsaren och behöver ingen egen backend för det innehåll jag har idag.
+                            </p>
+                        </div>
+                    </details>
+                </div>
             </section>
 
             <!-- Vad projektet gett mig -->
             <section class="mb-4">
                 <h2>Vad projektet gett mig</h2>
                 <p>
-                    Projektet har gett mig praktisk erfarenhet av att bygga och vidareutveckla en egen
-                    Blazor-applikation och att hantera hela flödet från kodändring till deployment. Det har
-                    också gett mig en miljö där jag kan arbeta vidare med C#/.NET, webbgränssnitt, Git och
-                    CI/CD samtidigt som själva portfolion utvecklas.
+                    Projektet har gett mig praktisk erfarenhet av hur koden går från GitHub till en
+                    publicerad webbplats: build och deployment med GitHub Actions, hosting i Azure
+                    Static Web Apps samt koppling av egen domän med DNS och HTTPS.
                 </p>
             </section>
 
